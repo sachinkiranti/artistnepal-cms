@@ -1,0 +1,40 @@
+.seo-manager{
+    border: 1px solid #cccccc;
+    padding: 15px 20px;
+}
+.seo-manager-head h1{
+    border-bottom: 1px solid #cccccc;
+    cursor: pointer;
+    padding-bottom: 6px;
+    margin-bottom: 15px;
+}
+.seo-manager-head h1 span{
+    font-weight: bold;
+    font-size: 20px;
+}
+.seo-manager-head h1 > i{
+    font-size: 18px;
+    margin-right: 10px;
+}
+
+.google-search-pre {
+    font-size: 14px;
+}
+.seo-title{
+    margin: 10px 0 0 0;
+    color: #2184c6;
+    font-size: 16px;
+}
+.seo-url{
+    color: #56b395;
+    font-size: 17px;
+}
+.seo-desc{
+    font-size: 14px;
+    color: #a09e9e;
+}
+.seo-manager-body {
+    border: 1px solid #cccccc;
+    padding: 10px 20px;
+    margin-top: 10px;
+}

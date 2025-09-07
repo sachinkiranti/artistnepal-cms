@@ -1,0 +1,4 @@
+text: "name"
+textarea: "summary|description"
+radio: "status"
+#select: Yes

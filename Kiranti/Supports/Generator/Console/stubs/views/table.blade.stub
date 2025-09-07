@@ -1,0 +1,13 @@
+<div class="table-responsive">
+    <table class="table table-striped table-bordered table-hover dataTables-list" >
+        <thead>
+        <tr>
+            {TABLE_HEADS}
+            <th>Action</th>
+        </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+    </table>
+</div>

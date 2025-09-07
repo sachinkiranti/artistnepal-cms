@@ -1,0 +1,48 @@
+<?php
+
+namespace Foundation\Services;
+
+use Foundation\Models\{CLASS_NAME};
+use Kiranti\Supports\BaseService;
+
+/**
+ * Class {CLASS_NAME}Service
+ * @package Foundation\Services
+ */
+class {CLASS_NAME}Service extends BaseService
+{
+
+    /**
+     * The {CLASS_NAME} instance
+     *
+     * @var $model
+     */
+    protected $model;
+
+    /**
+     * {CLASS_NAME}Service constructor.
+     * @param {CLASS_NAME} {VAR_CLASS_NAME}
+     */
+    public function __construct({CLASS_NAME} {VAR_CLASS_NAME})
+    {
+        $this->model = {VAR_CLASS_NAME};
+    }
+
+    /**
+     * Filter
+     *
+     * @param array|null $data
+     * @return mixed
+     */
+    public function filter(array $data = null)
+    {
+        return $this->model
+            ->where(function ($query) use ($name){
+                if($name){
+                    $query->where('name','like', '%'. $name .'%');
+                }
+            })
+            ->get();
+    }
+
+}

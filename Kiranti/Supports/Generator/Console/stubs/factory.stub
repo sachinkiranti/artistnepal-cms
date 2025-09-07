@@ -1,0 +1,12 @@
+<?php
+
+/** @var \Illuminate\Database\Eloquent\Factory $factory */
+
+use Foundation\Models\{CLASS_NAME};
+use Faker\Generator as Faker;
+
+$factory->define({CLASS_NAME}::class, function (Faker $faker) {
+    return [
+        {FILLABLE_ATTR}
+    ];
+});

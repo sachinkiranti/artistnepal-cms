@@ -1,0 +1,23 @@
+<?php
+
+namespace Foundation\Models;
+
+use Kiranti\Supports\BaseModel as Model;
+
+/**
+ * Class {CLASS_NAME}
+ * @package Foundation\Models
+ */
+class {CLASS_NAME} extends Model
+{
+
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = [
+        {FILLABLE_ATTR}
+    ];
+
+}

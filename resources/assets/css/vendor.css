@@ -1,0 +1,55 @@
+.has-error,.required{
+    color: red;
+    font-weight: 300 !important;
+    text-transform: none !important;
+}
+.form-group > label{
+    font-weight: bold;
+}
+.error{
+    font-weight: 300 !important;
+    text-transform: none !important;
+}
+.ibox-title > h5{ text-transform: capitalize; }
+.form-group > label{ text-transform: capitalize; }
+
+.hr-line-dashed {
+    border-top: 1px dashed #e7eaec;
+    color: #ffffff;
+    background-color: #ffffff;
+    height: 1px;
+    margin: 20px 0;}
+.actionBtnCustom{
+    padding: 20px 20px 20px 0;
+}
+.actionBtnCustom > button{
+    margin-right: 10px;
+}
+.ibox-title-border{
+     padding: 15px 90px 15px 15px;
+     border-bottom: 1px solid #e7eaec;
+ }
+.ibox-content-custom{
+    padding:25px 20px 15px 20px;
+}
+.count-value{
+    font-weight: bold;
+    padding: 6px 8px;
+}
+.custom-count-container
+{
+    padding-bottom: 10px;
+}
+.ibox-title-border-custom{
+    padding-right: 22px;
+}
+.password-info{
+    color: #807a7a !important;
+}
+.count-flag{
+    color: white;
+    background: #56b395;
+    padding: 1px 4px;
+    border-radius: 3px;
+    cursor: default;
+}

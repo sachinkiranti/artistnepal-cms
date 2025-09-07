@@ -1,0 +1,84 @@
+{
+    "components": {
+        "breaking-news-component"         : "Breaking News Component",
+        "left-section-component"          : "Left Section News Component",
+        "middle-section-component"        : "Middle Section News Component",
+        "right-section-component"         : "Right Section Component",
+        "video-section-component"         : "Video Section Component",
+        "eight-by-four-section-component" : "Eight by four Section Component",
+        "featured-news-component"         : "Featured News Component",
+        "footer-top-section-component"    : "Footer Top Section Component",
+        "page-sidebar-component"          : "Page Sidebar Component",
+        "eight-section-component"         : "Eight Section Component",
+        "four-section-component"          : "Four Section Component",
+        "footer-eight-section-component"  : "Footer Eight Section Component",
+        "footer-four-section-component"   : "Footer Four Section Component",
+
+        "literature-right-section-component" : "Literature right Section Component",
+        "literature-left-section-component"  : "literature Left Section Component",
+
+        "footer-right-section-component"  : "Footer right section component",
+        "footer-left-section-component"   : "Footer left section component",
+        "footer-middle-section-component" : "Footer middle section component",
+        "footer-full-section-component"   : "Footer full section component"
+    },
+
+    "templates": {
+        "breaking-news"                      : "Breaking News / Trending News",
+        "eight-column-side-full-width"       : "Eight column with full width side news",
+        "eight-column-top-full-width"        : "Eight column with full top width side news",
+        "featured-news"                      : "Featured News",
+        "list-with-circle-image"             : "News List with circle image",
+        "list-with-left-side-image"          : "News List with left side image",
+        "list-with-image"                    : "News List with image",
+        "list-with-rectangle-image"          : "News list with rectangle image",
+        "list-without-image"                 : "News List without image",
+        "party-board"                        : "Board party news",
+        "trending-news"                      : "Trending News",
+        "list-with-one-full-image"           : "List with one full image and other Normal",
+        "literature-list"                    : "Literature List",
+        "literature-grid"                    : "Literature Grid List",
+        "sochai"                             : "Sochai Widget template",
+        "gallery"                            : "Gallery Template",
+        "video"                              : "Video",
+        "ad"                                 : "Advertisement",
+        "card-list"                          : "Card List",
+        "nrn-news"                           : "NRN News List"
+    },
+
+    "preview": {
+        "breaking-news"                      : "/widgets/breaking-news.png",
+        "bises-news"                         : "/widgets/bises-news.png",
+        "pramukh-news"                       : "/widgets/pramukh-news.png",
+        "eight-column-side-full-width"       : "/widgets/eight-column-side-full-width.png",
+        "eight-column-top-full-width"        : "/widgets/eight-column-top-full-width.png",
+        "featured-news"                      : "/widgets/featured-news.png",
+        "list-with-circle-image"             : "/widgets/breaking-news.png",
+        "list-with-image"                    : "/widgets/list-with-image.png",
+        "list-with-rectangle-image"          : "/widgets/list-with-rectangle-image.png",
+        "list-with-left-side-image"          : "/widgets/list-with-left-side-image",
+        "list-without-image"                 : "/widgets/list-without-image.png",
+        "party-board"                        : "/widgets/party-board.png",
+        "trending-news"                      : "/widgets/trending-news.png",
+        "list-with-one-full-image"           : "/widgets/list-with-one-full-image.png",
+        "literature-list"                    : "/widgets/litreture-list.png",
+        "literature-grid"                    : "/widgets/litreture-grid.png",
+        "sochai"                             : "/widgets/sochai.png",
+        "gallery"                            : "/widgets/gallery.png",
+        "video"                              : "/widgets/video.png",
+        "ad"                                 : "/widgets/ad.png",
+        "card-list"                          : "Card List",
+        "nrn-news"                           : "NRN News List"
+    },
+
+    "wrapper": [
+        "breaking-news-component-wrapper",
+        "grid-news-component-wrapper",
+        "featured-news-component-wrapper",
+        "video-section-component-wrapper",
+        "nrn-bises-component-wrapper",
+        "sahitya-news-component-wrapper",
+        "asideleft-sec-component-wrapper",
+        "footer-full-section-component-wrapper"
+    ]
+}

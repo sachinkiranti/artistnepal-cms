@@ -1,0 +1,10 @@
+module.exports = {
+    routes: {ROUTE_LIST},
+    get: function (query) {
+        if (!this.routes.hasOwnProperty(query)) {
+            console.error("`" + query + "` Route Not Found!");
+            return;
+        }
+        return this.routes[query];
+    }
+};

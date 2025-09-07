@@ -1,0 +1,17 @@
+<?php
+
+use Foundation\Models\{CLASS_NAME};
+use Illuminate\Database\Seeder;
+
+class {CLASS_NAME}TableSeeder extends Seeder
+{
+    /**
+     * Run the database seeds.
+     *
+     * @return void
+     */
+    public function run()
+    {
+        factory({CLASS_NAME}::class, 5)->create();
+    }
+}

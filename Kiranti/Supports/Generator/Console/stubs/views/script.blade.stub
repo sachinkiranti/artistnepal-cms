@@ -1,0 +1,12 @@
+<script>
+    $(function () {
+        $("#{LOWER_CLASS_NAME}Form").validate({
+            rules: {
+                name: "required",
+            },
+            messages: {
+                name: "Please enter {LOWER_CLASS_NAME} name",
+            }
+        });
+    })
+</script>

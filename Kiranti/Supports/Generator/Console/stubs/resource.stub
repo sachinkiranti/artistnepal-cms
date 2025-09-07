@@ -1,0 +1,29 @@
+<?php
+
+namespace Foundation\Resources;
+
+use Illuminate\Http\Request;
+use Illuminate\Http\Resources\Json\JsonResource;
+
+/**
+ * Class {CLASS_NAME}Resource
+ *
+ * @package Foundation\Resources
+ */
+class {CLASS_NAME}Resource extends JsonResource
+{
+
+    /**
+     * Transform the resource into an array.
+     *
+     * @param  Request  $request
+     * @return array
+     */
+    public function toArray($request)
+    {
+        return [
+            //
+        ];
+    }
+
+}
