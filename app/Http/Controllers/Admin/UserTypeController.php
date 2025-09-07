@@ -102,13 +102,12 @@ final class UserTypeController extends BaseController
             ]);
         }
 
-        $user = $this->userService->new($request->merge([
-            'unique_identifier' => \Foundation\Lib\Utility::randomNumber(),
-        ])->all());
+        $user = $this->userService->new($request->all());
 
         if( $user ){
             $user->roles()->sync((array) $role->id);
         }
+
         $error = '';
 
         try {
@@ -171,9 +170,8 @@ final class UserTypeController extends BaseController
             ]);
         }
 
-        $this->userService->update(array_filter($request->merge([
-            'unique_identifier' => \Foundation\Lib\Utility::randomNumber(),
-        ])->all()), $user);
+        $this->userService->update(array_filter($request->all()), $user);
+
         if( $user ){
             $user->roles()->sync((array) $role->id);
         }

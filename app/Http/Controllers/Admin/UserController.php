@@ -85,7 +85,6 @@ class UserController extends BaseController
             ]);
         }
         $user = $this->userService->new($request->merge([
-            'unique_identifier' => \Foundation\Lib\Utility::randomNumber(),
             'password'          => bcrypt($request->get('password')),
         ])->all());
         if( $user ){
@@ -151,9 +150,7 @@ class UserController extends BaseController
             ]);
         }
 
-        $this->userService->update(array_filter($request->merge([
-            'unique_identifier' => \Foundation\Lib\Utility::randomNumber(),
-        ])->all()), $user);
+        $this->userService->update(array_filter($request->all()), $user);
 
         $user->roles()->sync((array) $request->get('roles'));
         flash('success', 'Record successfully updated.');

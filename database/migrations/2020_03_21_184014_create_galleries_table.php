@@ -17,7 +17,7 @@ class CreateGalleriesTable extends Migration
             $table->bigIncrements('id');
 
             $table->string('name', 100);
-            $table->bigInteger('unique_identifier')->nullable()->unique();
+            $table->uuid('unique_identifier')->nullable()->unique();
             $table->string('slug')->nullable()->unique();
             $table->string('thumbnail')->nullable();
             $table->text('content')->nullable();

@@ -7,6 +7,7 @@ use Kiranti\Supports\Concerns\HasImage;
 use Kiranti\Supports\Concerns\HasRoles;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
 /**
@@ -16,7 +17,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 class User extends Authenticatable
 {
 
-    use HasRoles, Notifiable, SoftDeletes, Cacheable, HasImage;
+    use HasUuids, HasRoles, Notifiable, SoftDeletes, Cacheable, HasImage;
 
     protected $cacheKey = 'users';
 
@@ -37,6 +38,11 @@ class User extends Authenticatable
     protected $casts = [
         'last_login' => 'datetime',
     ];
+
+    public function uniqueIds(): array
+    {
+        return [ 'unique_identifier', ];
+    }
 
     public function posts()
     {

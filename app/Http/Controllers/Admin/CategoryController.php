@@ -114,7 +114,6 @@ class CategoryController extends BaseController
     {
         $parent_id = $request->get('child-category') ?? $request->get('parent_id') ?? 0;
         $this->categoryService->new($request->merge([
-            'unique_identifier' => \Foundation\Lib\Utility::randomNumber(),
             'slug' => Str::slug($request->get('slug')),
             'parent_id' => $parent_id,
             'created_by' => auth()->id(),

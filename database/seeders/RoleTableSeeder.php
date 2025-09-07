@@ -14,11 +14,7 @@ class RoleTableSeeder extends Seeder
      */
     public function run()
     {
-        $roles = [
-            \Foundation\Models\User::DEFAULT_ROLE, \Foundation\Lib\Role::get(\Foundation\Lib\Role::ROLE_AUTHOR, false),
-        ];
-
-        foreach ($roles as $role) {
+        foreach (\Foundation\Lib\Role::$current as $role) {
             $name = ucwords(str_replace('-', ' ', $role));
             Role::updateOrCreate(
                 [ 'name' => $name, ],

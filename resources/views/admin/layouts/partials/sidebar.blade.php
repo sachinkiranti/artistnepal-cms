@@ -4,14 +4,18 @@
             <li class="nav-header">
                 <div class="dropdown profile-element text-center">
                     @auth
-                        @if(auth()->user()->hasRole(\Foundation\Lib\Role::$current[\Foundation\Lib\Role::ROLE_ADMIN]))
+                        @if(auth()->user()->hasRole(\App\Foundation\Enums\Role::ROLE_SUPER_ADMIN->value,\App\Foundation\Enums\Role::ROLE_ADMIN->value))
                             <img alt="image" width="70%" src="{{ asset('images/default-logo.png') }}"/>
                             @else
                             <img alt="image" width="60" height="60" class="img-circle" src="{{ auth()->user()->getImage() }}"/>
                         @endif
                     <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                        <span class="block m-t-xs font-bold">{{ auth()->user()->first_name ?? '' }} &nbsp;<i class="fa fa-caret-down" aria-hidden="true"></i></span>
-                        <small class="text-muted text-xs block" title="Last login at"> <i class="fa fa-clock-o"></i>  {{ optional(auth()->user()->last_login)->diffForHumans() }}</small>
+                        <span class="block m-t-xs font-bold">
+                            {{ ucwords(auth()->user()->first_name ?? '') }} &nbsp;<i class="fa fa-caret-down" aria-hidden="true"></i>
+                        </span>
+                        <small class="text-muted text-xs block" title="Last login at">
+                            <i class="fa fa-clock-o"></i>  {{ optional(auth()->user()->last_login)->diffForHumans() }}
+                        </small>
                     </a>
                     @endauth
                     <ul class="dropdown-menu animated fadeInRight m-t-xs">

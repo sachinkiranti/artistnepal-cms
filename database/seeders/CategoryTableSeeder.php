@@ -55,7 +55,6 @@ class CategoryTableSeeder extends Seeder
 
                 $identifier = \Foundation\Lib\Utility::randomNumber();
                 Category::create([
-                    'unique_identifier' => $identifier,
                     'parent_id' => 0,
                     'category_name' => $category,
                     'slug' => \Illuminate\Support\Str::slug($category.$identifier),

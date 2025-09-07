@@ -81,17 +81,32 @@
         </a>
         <ul class="nav nav-second-level @isurl('admin/user*|admin/role*|admin/permission*|admin/user-type*|admin/employer*|admin/job-seeker*') collapse in @else collapse @endisurl">
 
-            @hasaccess('admin_user-type_index')
-            <li class="@isurl('admin/user-type*') active @endisurl">
-                <a href="{{ route('admin.user-type.index', 1) }}">
-                    <span class="nav-label">Admin </span></a>
-            </li>
-            @endhasaccess
+            @php
+                $adminConst = \Foundation\Lib\Role::ROLE_ADMIN;
+                $artistConst = \Foundation\Lib\Role::ROLE_ARTIST;
+                $subscriberConst = \Foundation\Lib\Role::ROLE_SUBSCRIBER;
+                $authorConst = \Foundation\Lib\Role::ROLE_AUTHOR;
+            @endphp
 
             @hasaccess('admin_user-type_index')
-            <li class="@isurl('admin/user-type*') active @endisurl">
-                <a href="{{ route('admin.user-type.index', 2) }}">
+            <li @class([ 'active' => request()->is('admin/user-type/'. $adminConst), ])>
+                <a href="{{ route('admin.user-type.index', $adminConst) }}">
+                    <span class="nav-label">Admin </span></a>
+            </li>
+
+            <li @class([ 'active' => request()->is('admin/user-type/'. $authorConst), ])>
+                <a href="{{ route('admin.user-type.index', $authorConst) }}">
                     <span class="nav-label">Author </span></a>
+            </li>
+
+            <li @class([ 'active' => request()->is('admin/user-type/'. $artistConst), ])>
+                <a href="{{ route('admin.user-type.index', $artistConst) }}">
+                    <span class="nav-label">Artist </span></a>
+            </li>
+
+            <li @class([ 'active' => request()->is('admin/user-type/'. $subscriberConst), ])>
+                <a href="{{ route('admin.user-type.index', $subscriberConst) }}">
+                    <span class="nav-label">Subscriber </span></a>
             </li>
             @endhasaccess
 
@@ -172,14 +187,6 @@
         </li>
         @endhasaccess
     </ul>
-</li>
-@endhasaccess
-
-@hasaccess('admin_team_edit')
-<li class="@isurl('admin/team*') active @endisurl">
-    <a href="{{ route('admin.team.edit') }}"><i class="fa fa-user" aria-hidden="true"></i>
-        <span class="nav-label">Team</span>
-    </a>
 </li>
 @endhasaccess
 

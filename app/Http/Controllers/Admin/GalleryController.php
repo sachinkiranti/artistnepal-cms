@@ -107,7 +107,6 @@ class GalleryController extends BaseController
         }
 
         $gallery = $this->galleryService->new($request->merge([
-            'unique_identifier' => Utility::randomNumber(),
             'slug' => Str::slug($request->get('slug')). '-'.Utility::randomNumber(),
         ])->all());
 

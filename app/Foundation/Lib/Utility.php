@@ -2,6 +2,8 @@
 
 namespace Foundation\Lib;
 
+use Illuminate\Support\Str;
+
 /**
  * Class Utility
  * @package Foundation\Lib
@@ -12,11 +14,11 @@ final class Utility
     /**
      * @param int $min
      * @param int $max
-     * @return int
+     * @return \Ramsey\Uuid\UuidInterface
      */
     public static function randomNumber($min = 1000000000, $max = 9999999999)
     {
-        return (string) hexdec(uniqid());
+        return Str::uuid();
     }
 
     public static function isJson($rawJson)

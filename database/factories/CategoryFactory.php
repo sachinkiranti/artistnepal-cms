@@ -10,7 +10,6 @@ use Foundation\Models\Category;
 
 $factory->define(Category::class, function (Faker $faker) {
     return [
-        'unique_identifier' => \Foundation\Lib\Utility::randomNumber(),
         'parent_id' => 0,
         'category_name' => $faker->firstName,
         'slug' => $faker->slug,

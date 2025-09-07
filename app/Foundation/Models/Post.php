@@ -2,16 +2,17 @@
 
 namespace Foundation\Models;
 
+use Spatie\Feed\Feedable;
+use Spatie\Feed\FeedItem;
+use Kiranti\Config\Language;
 use Foundation\Lib\PostType;
 use Foundation\Mixins\HasComments;
 use Foundation\Mixins\HasReactions;
 use Foundation\Builders\Cache\Meta;
-use Kiranti\Config\Language;
-use Kiranti\Supports\BaseModel as Model;
 use Kiranti\Supports\Concerns\HasImage;
+use Kiranti\Supports\BaseModel as Model;
 use Kiranti\Supports\Concerns\HasVisitors;
-use Spatie\Feed\Feedable;
-use Spatie\Feed\FeedItem;
+use Illuminate\Database\Eloquent\Concerns\HasUuids;
 
 /**
  * Class Post
@@ -20,7 +21,7 @@ use Spatie\Feed\FeedItem;
 class Post extends Model implements Feedable
 {
 
-    use HasComments, HasReactions, HasImage, HasVisitors;
+    use HasUuids, HasComments, HasReactions, HasImage, HasVisitors;
 
     /**
      * The attributes that are mass assignable.
@@ -40,42 +41,47 @@ class Post extends Model implements Feedable
 
     protected $dates = [ 'published_date', ];
 
-    public function tags()
+    public function uniqueIds(): array
+    {
+        return [ 'unique_identifier', ];
+    }
+
+    public function tags(): \Illuminate\Database\Eloquent\Relations\MorphToMany
     {
         return $this->morphToMany(Tag::class,'taggable');
     }
 
-    public function category()
+    public function category(): \Illuminate\Database\Eloquent\Relations\BelongsTo
     {
         return $this->belongsTo(Category::class);
     }
 
-    public function user()
+    public function user(): \Illuminate\Database\Eloquent\Relations\HasOne
     {
         return $this->hasOne(User::class,'id','created_by');
     }
 
-    public function isReactionOpened()
+    public function isReactionOpened(): bool
     {
         return $this->disable_reaction == 0 && Meta::get('disable_site_reaction_globally') == 0;
     }
 
-    public function isDisqusCommentOpened()
+    public function isDisqusCommentOpened(): bool
     {
         return $this->disable_disqus_comment == 0 && Meta::get('disable_disqus_comment_globally') == 0;
     }
 
-    public function isFacebookCommentOpened()
+    public function isFacebookCommentOpened(): bool
     {
         return $this->disable_facebook_comment == 0 && Meta::get('disable_facebook_comment_globally') == 0;
     }
 
-    public function isSiteCommentOpened()
+    public function isSiteCommentOpened(): bool
     {
         return $this->disable_site_comment == 0 && Meta::get('disable_site_comment_globally') == 0;
     }
 
-    public function isPost()
+    public function isPost(): bool
     {
         return $this->post_type != 1;
     }
@@ -111,7 +117,7 @@ class Post extends Model implements Feedable
             ->author($this->author_full_name);
     }
 
-    public static function getFeedItems()
+    public static function getFeedItems(): \Illuminate\Database\Eloquent\Collection|array
     {
         return Post::query()
             ->select( 'posts.*', 'categories.category_name' )

@@ -194,7 +194,6 @@ class PostController extends BaseController
         ]);
 
         $data = array_filter($request->merge([
-            'unique_identifier' => \Foundation\Lib\Utility::randomNumber(),
             'created_by'=> $request->get('created_by') ?? auth()->id(),
             'disable_facebook_comment' => $request->get('disable_facebook_comment') === 'on',
             'disable_disqus_comment' => $request->get('disable_disqus_comment') === 'on',

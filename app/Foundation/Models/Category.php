@@ -2,9 +2,9 @@
 
 namespace Foundation\Models;
 
-use Foundation\Builders\Scopes\LanguageScope;
 use Kiranti\Supports\Cache\Cacheable;
 use Kiranti\Supports\BaseModel as Model;
+use Illuminate\Database\Eloquent\Concerns\HasUuids;
 
 /**
  * Class Category
@@ -13,7 +13,7 @@ use Kiranti\Supports\BaseModel as Model;
 class Category extends Model
 {
 
-    use Cacheable;
+    use HasUuids, Cacheable;
 
     protected $cacheKey = 'categories';
 
@@ -25,6 +25,11 @@ class Category extends Model
     protected $fillable = [
         'unique_identifier', 'parent_id','category_name', 'created_by', 'slug', 'description', 'status', 'lang',
     ];
+
+    public function uniqueIds(): array
+    {
+        return [ 'unique_identifier', ];
+    }
 
     public function posts()
     {
