@@ -51,7 +51,7 @@ final class Theme
             return strtolower(app('db')
                     ->table('settings')
                     ->where('key', Kiranti::THEME_KEY)
-                    ->value('value') ?? 'default');
+                    ->value('value') ?? Kiranti::DEFAULT_THEME);
         } catch (\Illuminate\Database\QueryException $exception) {
             return 'default';
         }

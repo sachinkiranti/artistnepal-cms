@@ -1,0 +1,32 @@
+<div class="promo promo--white">
+    <div class="promo__content">
+        <header class="pr__header pr__dark">
+            <div class="uk-container">
+                <div class="inner">
+                    <div class="logo">
+                        <a href="https://artistnepal.com">
+                            <div class="brand"></div>
+                        </a>
+                    </div>
+                    @include('layouts.partials.primary-nav')
+                    <div class="navbar-tigger" data-uk-toggle="target: #navbar-mobile">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </div>
+            </div>
+        </header><!-- Site Header End -->
+    </div>
+    <div class="promo__bck">
+        <img src="@yield('promo-banner', 'https://artistnepal.com/wp-content/uploads/2024/04/Chhulthim-Dollma-Gurung-Actress-producer-VJ-RJ-model.artistnepal-5-.jpg')" />
+    </div>
+    <div class="promo__content promo__content--bottom">
+        <div class="promo__container ">
+            <div class="promo__container--small">
+                @yield('promo-container')
+            </div>
+
+        </div>
+    </div>
+</div>

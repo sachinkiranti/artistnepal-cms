@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use Foundation\Lib\Category as CategoryType;
 use Exception;
 use Foundation\Services\TagService;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Str;
 use Illuminate\View\View;
@@ -52,7 +53,7 @@ class CategoryController extends BaseController
      * Display a listing of the resource.
      *
      * @param Request $request
-     * @return Factory|View
+     * @return Factory|\Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\View|\Illuminate\Foundation\Application|View|JsonResponse
      * @throws Exception
      */
     public function index(Request $request)

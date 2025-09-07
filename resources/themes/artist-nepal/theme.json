@@ -1,0 +1,12 @@
+{
+    "name": "Artist-nepal",
+    "alias": "artist-nepal",
+    "type": "frontend",
+    "author": "Sachin Kiranti",
+    "email": "sachinkiranti@gmail.com",
+    "description": "An elegant default theme for CMS.",
+    "keywords": ["default", "core"],
+    "active": 1,
+    "priority": 100,
+    "version": "0.1.0"
+}

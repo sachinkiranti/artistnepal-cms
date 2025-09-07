@@ -30,4 +30,11 @@ enum Role: string
      */
     case ROLE_SUBSCRIBER = 'subscriber';
 
+    public static function getStats(): array
+    {
+        return [
+            self::ROLE_ARTIST->value, self::ROLE_SUBSCRIBER->value,
+        ];
+    }
+
 }

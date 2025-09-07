@@ -1,0 +1,186 @@
+/*
+.pr__header .inner .logo .brand{
+    background-image:url("../images/logo-artist-nepal.svg");
+    height:65px;
+    background-position-y: 0;
+}
+@media (min-width: 960px){
+    .pr__header .inner .logo {
+        width: 206px;
+    }
+}
+
+.gallery-wrap-inset {
+    margin-left: -10px;
+    margin-right: -10px;
+}
+@media only screen and (min-width: 1281px) {
+    .gallery-wrap-inset {
+        max-width: 90%;
+        margin: 0 auto;
+    }
+}
+.grid-item { display: block; width: calc(33.33% - 20px); padding: 10px; }
+.grid-item--small { width: calc(25% - 20px); padding: 10px; }
+@media only screen and (max-width: 769px) {
+    .grid-item{
+        width: calc(50% - 10px);
+        padding: 5px;
+    }
+}
+
+.item.service-box.style-one:hover > .inner .overlay-icon.icon.pr-arrow-left{
+    left: 0;
+}
+*/
+
+/*-- form --*/
+/*
+.item.service-box.style-one--small > .inner{
+    padding: 18px;
+}
+.item.service-box.style-one--small:hover > .inner{
+    padding-left: 0;
+}
+.item.service-box.style-one--small > .inner .title{
+    font-size: 16px;
+}
+.item.service-box.style-one--small:hover > .inner .title{
+    transform: translateX(20px);
+}
+.service-boxes--small >* {
+    padding-left: 10px;
+}
+.service-boxes--small>.uk-grid-margin{
+    margin-top: 10px;
+}
+.post.type-post > .outer > .service-boxes--small .inner .link{
+    padding-top: 0;
+}
+.post.type-post > .outer > .inner .title{
+    margin: 0;
+}
+*/
+
+.login-popup-container {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 9999;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-popup-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    width: 300px;
+    position: relative;
+}
+
+.login-register-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #0073e6;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 20px;
+}
+
+.login-close-btn {
+    position: absolute;
+    top: -5px;
+    right: 5px;
+    background-color: transparent;
+    border: none;
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    padding: 5px 5px;
+    z-index: 2;
+}
+
+.login-close-btn::before {
+    content: 'X';
+    position: absolute;
+    top: -5px;
+    right: -6px;
+    width: 30px;
+    height: 30px;
+    background-color: rgba(0, 0, 0, 0.7);
+    border-radius: 60%;
+    z-index: -1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.login-close-btn:hover {
+    font-weight: bolder;
+}
+
+.select2-search__field {
+    width: 70%!important;
+}
+
+.commentlist li {
+    list-style: none;
+}
+
+.comment-body {
+    background: #ffffff;
+    border: 1px solid #ffffff;
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+     box-shadow: none;
+}
+
+.select2-container .select2-search--inline .select2-search__field {
+    margin-top: 0!important;
+}
+
+.search-box__input {
+    height: 50px!important;
+    margin: 0 0 0 5px;
+    padding-top: 0;
+    padding-right: 20px;
+    padding-left: 20px;
+    padding-bottom: 0;
+}
+
+.select2-container--default {
+    width: 100%!important;
+}
+
+@media (max-width: 768px) {
+    .search-box__inputs {
+        display: flex;
+        flex-flow: column;
+    }
+
+    .mt-5 {
+        margin-top: 5px;
+    }
+
+    .search-box__input {
+        margin: 5px 0 0;
+    }
+
+    .uk-width-3-4 {
+        width: 100%;
+    }
+
+}
+
+select.search-box__input {
+    width: 100%!important;
+}

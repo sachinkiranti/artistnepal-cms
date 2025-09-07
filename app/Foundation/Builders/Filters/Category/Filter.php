@@ -29,6 +29,10 @@ final class Filter
             $builder->where('category.unique_identifier', $identifier);
         }
 
+        if ($type = Arr::get($data,'filter.type')) {
+            $builder->where('category.type', $type);
+        }
+
         if ($name = Arr::get($data, 'filter.name')) {
             $builder->where('category.category_name', 'like', '%' . $name . '%');
         }

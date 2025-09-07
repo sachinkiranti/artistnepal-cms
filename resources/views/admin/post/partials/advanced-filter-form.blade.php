@@ -39,11 +39,4 @@
             </div>
         </div>
     </div>
-
-    <div class="col-lg-4 mt-3">
-        <div class="form-group">
-            <label >News Type</label>
-            {!! Form::select('filter_news_type', \Foundation\Lib\PostType::$types, null, ['class' => 'form-control', 'placeholder' => 'Select Type', ]) !!}
-        </div>
-    </div>
 </div>

@@ -36,7 +36,6 @@ class Post extends Model implements Feedable
         'author', 'media_display_type', 'video_url', 'lang',
         'is_author_visible',
         'is_thumbnail_visible',
-        'is_default_news', 'is_flash_news', 'is_bises_news', 'is_pramukh_news',
     ];
 
     protected $dates = [ 'published_date', ];

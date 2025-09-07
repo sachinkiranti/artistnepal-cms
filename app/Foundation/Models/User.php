@@ -6,6 +6,7 @@ use Kiranti\Supports\Cache\Cacheable;
 use Kiranti\Supports\Concerns\HasImage;
 use Kiranti\Supports\Concerns\HasRoles;
 use Illuminate\Notifications\Notifiable;
+use App\Foundation\Enums\Role as RoleAlias;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -44,6 +45,15 @@ class User extends Authenticatable
         return [ 'unique_identifier', ];
     }
 
+    public function getFullName(): string
+    {
+        return ucwords(join(' ', array_filter([
+            $this->first_name,
+            $this->middle_name,
+            $this->last_name,
+        ])));
+    }
+
     public function posts()
     {
         return $this->hasMany(Post::class, 'created_by');
@@ -59,12 +69,17 @@ class User extends Authenticatable
 
     public function hasAccess()
     {
-        return static::hasRole(static::DEFAULT_ROLE);
+        return static::hasRole(RoleAlias::ROLE_SUPER_ADMIN->value, RoleAlias::ROLE_ADMIN->value);
     }
 
     public static function setFolderName(): string
     {
         return 'users';
+    }
+
+    public function getArtistFrontendUrl(): string
+    {
+        return route('artist.single', $this->unique_identifier);
     }
 
 }

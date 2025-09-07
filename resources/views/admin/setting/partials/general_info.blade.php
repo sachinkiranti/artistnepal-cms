@@ -107,7 +107,7 @@
 <div class="form-group row">
     <label class="col-sm-12 col-form-label">Copyright</label>
     <div class="col-sm-12">
-        {!! Form::text('copyright-text',$data['settings']['copyright-text'] ?? null, ['class' => 'form-control','placeholder' => 'Copyright © 2020 Himalayakhabar. All Rights Reserved.', 'autocomplete' => 'off']) !!}
+        {!! Form::text('copyright-text',$data['settings']['copyright-text'] ?? null, ['class' => 'form-control','placeholder' => 'Copyright © 2020 CMS. All Rights Reserved.', 'autocomplete' => 'off']) !!}
     </div>
     @if($errors->has('copyright-text'))
         <label class="error" for="copyright-text"> {{ $errors->first('copyright-text') }}</label>

@@ -23,7 +23,7 @@ class Category extends Model
      * @var array
      */
     protected $fillable = [
-        'unique_identifier', 'parent_id','category_name', 'created_by', 'slug', 'description', 'status', 'lang',
+        'type', 'unique_identifier', 'parent_id','category_name', 'created_by', 'slug', 'description', 'status', 'lang',
     ];
 
     public function uniqueIds(): array

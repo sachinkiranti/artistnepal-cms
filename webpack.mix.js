@@ -121,3 +121,4 @@ mix.scripts([
 require('./resources/themes/default/webpack.mix.js');
 
 require('./resources/themes/artist-nepal/webpack.mix.js');
+require('./resources/themes/artist-nepal/webpack.mix.js');

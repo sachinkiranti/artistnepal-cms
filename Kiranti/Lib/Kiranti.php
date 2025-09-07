@@ -10,6 +10,7 @@ final class Kiranti
 {
 
     const THEME_KEY = 'theme';
+    const DEFAULT_THEME = 'artist-nepal';
 
     const WIDGET_BACKEND_PATH = 'admin.appearance.customizer.widgets.';
 

@@ -123,10 +123,11 @@ trait CrudTrait
             ->selectRaw("count(case when status = '".Status::ACTIVE_STATUS."' then 1 end) as active")
             ->selectRaw("count(case when status = '".Status::INACTIVE_STATUS."' then 1 end) as inactive");
 
-        $query->when(!auth()->user()->hasAccess(), function ($query) {
-            $query->where('posts.created_by', auth()->id());
-        });
-
+        if (Schema::hasColumn($this->model->getTable(), 'created_by')) {
+            $query->when(!auth()->user()->hasAccess(), function ($query) {
+                $query->where('created_by', auth()->id());
+            });
+        }
         if (Schema::hasColumn($this->model->getTable(), 'lang')) {
             $query->where('lang', Language::get(active_lang(), true));
         };

@@ -65,6 +65,7 @@
                         name : $('input[name=filter_name]').val(),
                         description : $('input[name=filter_description]').val(),
                         status : $('select[name=filter_status]').val(),
+                        type : $('select[name=filter_type]').val(),
                         createdAt: {
                             from: $('input[name=from]').val(),
                             to: $('input[name=to]').val(),

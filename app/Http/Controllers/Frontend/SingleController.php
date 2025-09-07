@@ -22,11 +22,6 @@ final class SingleController extends BaseController
 {
 
     /**
-     * @var WidgetService
-     */
-    private $widgetService;
-
-    /**
      * @var PostService
      */
     private $postService;
@@ -44,19 +39,16 @@ final class SingleController extends BaseController
     /**
      * SingleController constructor.
      *
-     * @param WidgetService $widgetService
      * @param PostService $postService
      * @param CategoryService $categoryService
      * @param ReactionService $reactionService
      */
     public function __construct (
-        WidgetService $widgetService,
         PostService $postService,
         CategoryService $categoryService,
         ReactionService $reactionService
     )
     {
-        $this->widgetService   = $widgetService;
         $this->postService     = $postService;
         $this->categoryService = $categoryService;
         $this->reactionService = $reactionService;
@@ -76,10 +68,9 @@ final class SingleController extends BaseController
         $data['related-posts']    = $this->postService->getRelatedById($post->id);
         $data['reactions']        = Reaction::all();
         $data['reaction-summary'] = $this->reactionService->summary($post);
-        $components               = (new Widget($this->widgetService))->handler('single');
 
         app(ViewsHandler::class)->handle($post);
-        return view('pages.single', compact('data', 'components'));
+        return view('pages.single', compact('data'));
     }
 
 }

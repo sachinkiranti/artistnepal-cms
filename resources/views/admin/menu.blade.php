@@ -172,20 +172,6 @@
                 <span class="nav-label">Menu</span></a>
         </li>
         @endhasaccess
-
-        @hasaccess('admin_customizer_index')
-        <li class="@isurl('admin/customizer*') active @endisurl">
-            <a href="{{ route('admin.customizer.index') }}">
-                <span class="nav-label">Customizer</span></a>
-        </li>
-        @endhasaccess
-
-        @hasaccess('admin_wrapper_index')
-        <li class="@isurl('admin/wrapper*') active @endisurl">
-            <a href="{{ route('admin.wrapper.index') }}">
-                <span class="nav-label">Component Wrapper</span></a>
-        </li>
-        @endhasaccess
     </ul>
 </li>
 @endhasaccess

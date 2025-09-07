@@ -25,6 +25,12 @@
         </div>
         <div class="col-lg-4 mt-3">
             <div class="form-group">
+                <label >Status</label>
+                {!! Form::select('filter_type', \Foundation\Enums\Category::dropdown(), null, ['class' => 'form-control', 'placeholder' => 'Select Type', ]) !!}
+            </div>
+        </div>
+        <div class="col-lg-4 mt-3">
+            <div class="form-group">
                 <label >Created At</label>
                 <div class="input-group">
                     {!! Form::date('from', null, ['class' => 'form-control', ]) !!}

@@ -28,8 +28,8 @@ final class Status
      * @var $current
      */
     public static $current = [
-        self::ACTIVE_STATUS   => 'Active',
-        self::INACTIVE_STATUS => 'In-Active',
+        self::ACTIVE_STATUS   => 'Published',
+        self::INACTIVE_STATUS => 'Draft',
     ];
 
     /**

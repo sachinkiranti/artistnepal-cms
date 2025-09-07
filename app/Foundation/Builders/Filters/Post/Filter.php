@@ -59,21 +59,6 @@ final class Filter
         }
 
         if ($type = Arr::get($data, 'filter.type')) {
-
-            switch ($type) {
-                case PostType::TYPE_FLASH_NEWS:
-                    $builder->where('posts.is_flash_news', Status::ACTIVE_STATUS);
-                    break;
-                case PostType::TYPE_HOT_NEWS:
-                    $builder->where('posts.is_bises_news', Status::ACTIVE_STATUS);
-                    break;
-                case PostType::TYPE_MAIN_NEWS:
-                    $builder->where('posts.is_pramukh_news', Status::ACTIVE_STATUS);
-                    break;
-                default:
-                    $builder->where('posts.is_default_news', Status::ACTIVE_STATUS);
-            }
-
             $builder->where('posts.post_type', PostType::POST_TYPE_POST);
 
         }

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Foundation\Enums\Role;
 use App\Http\Controllers\Controller;
 use Foundation\Services\PostService;
 use Foundation\Services\UserService;
@@ -49,8 +50,10 @@ final class DashboardController extends Controller
     {
         $data = [];
 
-        $data['superAdmin'] = $this->userService->getCountByUserType('super-admin');
-        $data['admin'] = $this->userService->getCountByUserType('admin');
+        foreach (Role::getStats() as $role) :
+            $data[$role] = $this->userService->getCountByUserType($role);
+        endforeach;
+
         $data['user'] = $this->userService->query()->count();
         $data['post'] = $this->postService->getCount();
         $data['category'] = $this->categoryService->query()->count();

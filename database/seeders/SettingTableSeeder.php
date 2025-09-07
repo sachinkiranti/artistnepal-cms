@@ -16,10 +16,14 @@ class SettingTableSeeder extends \Illuminate\Database\Seeder
     {
         app('db')->connection()->disableQueryLog();
 
-        if (Schema::hasTable((new \Foundation\Models\Setting())->getTable())) :
-            \Foundation\Models\Setting::truncate();
-            \Illuminate\Support\Facades\DB::unprepared(file_get_contents(storage_path('data/sql/settings.sql')));
-        endif;
+        try {
+            if (Schema::hasTable((new \Foundation\Models\Setting())->getTable())) :
+                \Foundation\Models\Setting::truncate();
+                \Illuminate\Support\Facades\DB::unprepared(file_get_contents(storage_path('data/sql/settings.sql')));
+            endif;
+        } catch (\Exception $exception) {
+            //
+        }
 
 //        \Illuminate\Database\Eloquent\Model::unguard();
 //

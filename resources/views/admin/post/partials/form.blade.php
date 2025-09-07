@@ -370,35 +370,6 @@
             </div>
 
             <div class="hr-line-dashed"></div>
-            <div class="form-group row">
-                <label class="col-sm-12 col-form-label is_required">Type <br><small>Mark the given post as </small> </label>
-
-                <div class="col-sm-12 {{ $errors->has('type') ? 'has-error' : '' }}">
-                    <div class="i-checks">
-                        <label style="cursor: pointer;">{!! Form::checkbox('is_default_news', null, $data['post']->is_default_news ?? 'on', [ 'class' => 'i-checks-checkbox', ]) !!} Default News  </label>
-                    </div>
-
-                    @if (auth()->user()->hasAccess())
-                        <div class="i-checks">
-                            <label style="cursor: pointer;">{!! Form::checkbox('is_flash_news', null, $data['post']->is_flash_news ?? false, [ 'class' => 'i-checks-checkbox', ]) !!} Flash News <span class="fa fa-flash" title="Flash News"></span></label>
-                        </div>
-
-                        <div class="i-checks">
-                            <label style="cursor: pointer;">{!! Form::checkbox('is_bises_news', null, $data['post']->is_bises_news ?? false, [ 'class' => 'i-checks-checkbox', ]) !!} Bises News <span class="fa fa-linode" title="Bises News"></span> </label>
-                        </div>
-
-                        <div class="i-checks">
-                            <label style="cursor: pointer;">{!! Form::checkbox('is_pramukh_news', null, $data['post']->is_pramukh_news ?? false, [ 'class' => 'i-checks-checkbox', ]) !!} Pramukh News <span class="fa fa-star" title="Pramukh News"></span> </label>
-                        </div>
-                    @endif
-                    @if($errors->has('type'))
-                            <label class="has-error" for="content">{{ $errors->first('type') }}</label>
-                        @endif
-                    </div>
-
-                </div>
-
-            <div class="hr-line-dashed"></div>
         </div>
     </div>
 

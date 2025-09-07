@@ -4,6 +4,14 @@
 <div class="form-group row">
     <label for="parent-category" class="col-sm-12 col-form-label">Parent Category</label>
     <div class="col-sm-12">
+        {!! Form::select('type', \Foundation\Enums\Category::dropdown(), null, ['placeholder' => 'Select Type', 'class' => 'form-control', ]) !!}
+    </div>
+</div>
+
+<div class="hr-line-dashed"></div>
+<div class="form-group row">
+    <label for="parent-category" class="col-sm-12 col-form-label">Parent Category</label>
+    <div class="col-sm-12">
         {!! Form::select('parent_id', $data['parents'], null, ['placeholder' => 'Select Category', 'class' => 'form-control','id'=>'parent-category', ]) !!}
     </div>
 </div>

@@ -33,22 +33,7 @@
                     Frontend
                 </a>
             </li>
-            @if (auth()->user()->hasAccess())
 
-            <li>
-                <a href="{{ url('/customizer') }}" target="_blank">
-                    <i class="fa fa-adjust"></i>
-                    Customizer
-                </a>
-            </li>
-            <li>
-                <a href="{{ route('post.single.customizer', [ 'slug' => app('db')->table('posts')->where('post_type', '!=', 1)->value('unique_identifier') ?? 11111, ]) }}" target="_blank">
-                    <i class="fa fa-adjust"></i>
-                    Page Customizer
-                </a>
-            </li>
-
-            @endif
             <li>
                 <a href="javascript:void(0);"
                    onclick="event.preventDefault();document.getElementById('logout-form').submit();">
