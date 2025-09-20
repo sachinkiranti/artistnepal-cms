@@ -22,7 +22,7 @@
                 <div class="row">
                     <div class="col-sm-12">
                         <div class="text-center">
-                            <img class="logo" alt="image" src="{{ asset('images/default-logo.png') }}"/>
+                            <img class="logo" alt="image" src="{{ asset('dist/themes/artist-nepal/img/logo.svg') }}"/>
                         </div>
                     </div>
 

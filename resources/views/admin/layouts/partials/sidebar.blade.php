@@ -5,7 +5,7 @@
                 <div class="dropdown profile-element text-center">
                     @auth
                         @if(auth()->user()->hasRole(\App\Foundation\Enums\Role::ROLE_SUPER_ADMIN->value,\App\Foundation\Enums\Role::ROLE_ADMIN->value))
-                            <img alt="image" width="70%" src="{{ asset('images/default-logo.png') }}"/>
+                            <img alt="image" width="70%" src="{{ asset('dist/themes/artist-nepal/img/logo.svg') }}"/>
                             @else
                             <img alt="image" width="60" height="60" class="img-circle" src="{{ auth()->user()->getImage() }}"/>
                         @endif

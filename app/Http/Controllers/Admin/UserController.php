@@ -94,8 +94,8 @@ class UserController extends BaseController
 
         try {
             $user->notify(new Welcome());
-        } catch (\Swift_TransportException $exception) {
-            $error = ' Email Not Sent !';
+        } catch (\Exception $exception) {
+            $error = ' Email Not Sent ! '. $exception->getMessage();
         }
         flash('success', 'User successfully created.'. $error);
         return $this->redirect($request);

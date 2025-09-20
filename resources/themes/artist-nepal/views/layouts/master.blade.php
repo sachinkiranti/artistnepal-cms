@@ -5,9 +5,9 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="google-site-verification" content="Xc3YSac_2y2ElL-sGX2xcTprtcIe9VkeZqmWCFldIgA" />
-    <link rel="apple-touch-icon" sizes="180x180" href="https://artistnepal.com/apple-touch-icon.png?v=1.1">
-    <link rel="icon" type="image/png" sizes="32x32" href="https://artistnepal.com/favicon-32x32.png?v=1.1">
-    <link rel="icon" type="image/png" sizes="16x16" href="https://artistnepal.com/favicon-16x16.png?v=1.1">
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('dist/themes/artist-nepal/img/ArtistNepal-Icon-180x180.png') }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('dist/themes/artist-nepal/img/ArtistNepal-Icon-32x32.png') }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('dist/themes/artist-nepal/img/ArtistNepal-Icon-32x32.png') }}">
     <link rel="manifest" href="https://artistnepal.com/site.webmanifest">
     <link rel="mask-icon" href="https://artistnepal.com/safari-pinned-tab.svg?v=1.1" color="#5bbad5">
     <meta name="msapplication-TileColor" content="#e9204f">
