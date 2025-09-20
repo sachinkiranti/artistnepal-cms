@@ -108,7 +108,7 @@ if (! function_exists('active_lang') ) :
      * @return string
      */
     function active_lang () {
-        return request('lang') ?? session(\Kiranti\Config\Language::LANG_KEY, 'np');
+        return request('lang') ?? session(\Kiranti\Config\Language::LANG_KEY, 'en');
     }
 
 endif;

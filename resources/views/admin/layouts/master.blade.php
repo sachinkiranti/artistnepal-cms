@@ -13,7 +13,7 @@
 
         @include('admin.layouts.partials.footer')
     </div>
-    @include('admin.layouts.partials.right-sidebar')
+{{--    @include('admin.layouts.partials.right-sidebar')--}}
 </div>
 @include('admin.layouts.partials.scripts')
 

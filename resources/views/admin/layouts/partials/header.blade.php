@@ -5,28 +5,6 @@
         </div>
 
         <ul class="nav navbar-top-links navbar-right">
-            @php
-                $lang = active_lang();
-            @endphp
-            <li class="dropdown">
-                <a class="dropdown-toggle count-info" data-toggle="dropdown" href="#" aria-expanded="false">
-                    <img src="{{ asset('images/'. $lang . '.png') }}" alt="English" class="img-circle" style="width:7%;"> {{ $lang === 'np' ? 'Nepali' : 'English' }} <i class="fa fa-angle-down"></i>
-                </a>
-                <ul class="dropdown-menu">
-                    <li>
-                        <a href="{{ route('translate', 'en') }}">
-                            <img src="{{ asset('images/en.png') }}" alt="English" class="img-circle" style="width:8%;">
-                            English
-                        </a>
-                    </li>
-                    <li>
-                        <a href="{{ route('translate', 'np') }}">
-                            <img src="{{ asset('images/np.png') }}" alt="Nepali" class="img-circle" style="width:8%;">
-                            Nepali
-                        </a>
-                    </li>
-                </ul>
-            </li>
             <li>
                 <a href="{{ url('/') }}" target="_blank">
                     <i class="fa fa-globe"></i>
@@ -44,13 +22,13 @@
                     {!! csrf_field() !!}
                 </form>
             </li>
-            @if (auth()->user()->hasAccess())
-            <li>
-                <a class="right-sidebar-toggle">
-                    <i class="fa fa-tasks"></i>
-                </a>
-            </li>
-            @endif
+{{--            @if (auth()->user()->hasAccess())--}}
+{{--            <li>--}}
+{{--                <a class="right-sidebar-toggle">--}}
+{{--                    <i class="fa fa-tasks"></i>--}}
+{{--                </a>--}}
+{{--            </li>--}}
+{{--            @endif--}}
         </ul>
 
     </nav>

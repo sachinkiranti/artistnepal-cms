@@ -237,11 +237,13 @@
 
             <div class="hr-line-dashed"></div>
 
-            <div class="col-sm-12 {{ $errors->has('featured_news_caption') ? 'has-error' : '' }}">
-                {!! Form::textarea('featured_news_caption', null, [ 'class' => 'form-control', 'rows' => 5, 'placeholder' => 'Enter the caption for featured Image', ]) !!}
-                @if($errors->has('featured_news_caption'))
-                    <label class="has-error" for="featured_news_caption">{{ $errors->first('featured_news_caption') }}</label>
-                @endif
+            <div class="row">
+                <div class="col-sm-12 {{ $errors->has('featured_news_caption') ? 'has-error' : '' }}">
+                    {!! Form::textarea('featured_news_caption', null, [ 'class' => 'form-control', 'rows' => 5, 'placeholder' => 'Enter the caption for featured Image', ]) !!}
+                    @if($errors->has('featured_news_caption'))
+                        <label class="has-error" for="featured_news_caption">{{ $errors->first('featured_news_caption') }}</label>
+                    @endif
+                </div>
             </div>
 
             @isset($data['post'])
@@ -326,19 +328,6 @@
 
                     @if($errors->has('disable_facebook_comment'))
                         <label class="has-error" for="disable_facebook_comment">{{ $errors->first('disable_facebook_comment') }}</label>
-                    @endif
-                </div>
-            </div>
-
-            <div class="form-group row">
-                <div class="col-sm-12 {{ $errors->has('disable_disqus_comment') ? 'has-error' : '' }}">
-
-                    <div class="i-checks">
-                        <label style="cursor: pointer;">{!! Form::checkbox('disable_disqus_comment', null, $data['post']->disable_disqus_comment ?? 'on', [ 'class' => 'i-checks-checkbox', ]) !!} Disable Disqus Comment <i class="fa fa-disqus"></i> </label>
-                    </div>
-
-                    @if($errors->has('disable_disqus_comment'))
-                        <label class="has-error" for="disable_disqus_comment">{{ $errors->first('disable_disqus_comment') }}</label>
                     @endif
                 </div>
             </div>
