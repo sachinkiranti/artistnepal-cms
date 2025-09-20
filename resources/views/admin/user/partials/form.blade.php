@@ -1,5 +1,5 @@
 <div class="hr-line-dashed"></div>
-<div class="form-group row col-sm-12">
+<div class="form-group row">
     <div class="col-sm-4">
         <label class=" col-form-label is_required"><b>First Name <span class="required">*</span></b> </label>
         <div class=" {{ $errors->has('first_name')?'has-error':'' }}">
@@ -33,7 +33,7 @@
 </div><!-- /.col-sm-12 -->
 
 <div class="hr-line-dashed"></div>
-<div class="form-group row col-sm-12">
+<div class="form-group row">
     <label class="col-sm-12 col-form-label is_required"><b>Email</b> <span class="required">*</span></label>
     <div class="col-sm-12 {{ $errors->has('last_name')?'has-error':'' }}">
         {!! Form::email('email', null, ['class' => 'form-control']) !!}
@@ -44,7 +44,7 @@
 </div>
 
 <div class="hr-line-dashed"></div>
-<div class="form-group row col-sm-12">
+<div class="form-group row">
     <div class="col-6">
         <div class="row">
             <label class="col-sm-12 col-form-label is_required"><b>Password @if (!isset($data['user']))<span class="required">*</span>@endif</b> </label>
@@ -70,13 +70,5 @@
     </div>
 </div>
 
-
-<div class="hr-line-dashed"></div>
-<div class="form-group row">
-        <label class="col-sm-1 col-form-label is_required"><b>Status</b></label>
-        <div class="col-sm-8">
-           @includeIf('admin.common.status_radio')
-        </div>
-</div>
 
 <div class="hr-line-dashed"></div>

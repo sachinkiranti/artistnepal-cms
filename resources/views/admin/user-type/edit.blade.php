@@ -15,7 +15,7 @@
             'enctype' => 'multipart/form-data', 'method' => 'patch']) !!}
         {!! Form::hidden('id', $data['user']->id) !!}
         <div class="row">
-            <div class="col-lg-8">
+            <div class="col-lg-9">
                 <div class="ibox ">
                     <div class="ibox-title">
                         <h5>General Info</h5>
@@ -24,8 +24,13 @@
                         @includeIf('admin.user.partials.form')
                     </div>
                 </div>
+
+                @includeWhen(
+                    $data['user']->hasRole(\App\Foundation\Enums\Role::ROLE_ARTIST->value),
+                    'admin.user.partials.artist.profile'
+                )
             </div>
-            <div class="col-lg-4">
+            <div class="col-lg-3">
                 @includeIf('admin.user.partials.extra-info')
             </div>
         </div>
