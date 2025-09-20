@@ -33,7 +33,18 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable  = [
-        'unique_identifier', 'email', 'password', 'first_name', 'middle_name', 'last_name', 'status', 'last_login', 'image', 'information',
+        'unique_identifier',
+        'email',
+        'password',
+        'first_name',
+        'middle_name',
+        'last_name',
+        'dob',
+        'gender',
+        'status',
+        'last_login',
+        'image',
+        'information',
     ];
 
     protected $casts = [
