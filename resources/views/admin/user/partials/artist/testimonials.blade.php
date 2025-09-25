@@ -4,7 +4,7 @@
         <div class="row">
             <div class="col-sm-12">
                 @php
-                    $oldTestimonials = old('testimonials', [[]]);
+                    $oldTestimonials = old('testimonials', $data['profile']->testimonials ?? []);
                 @endphp
 
                 <table class="table table-bordered" id="testimonialTable">
@@ -13,7 +13,7 @@
                         <th class="align-middle">Content</th>
                         <th class="align-middle">Endorser</th>
                         <th class="align-middle">Endorser Title</th>
-                        <th class="align-middle">
+                        <th class="align-middle no-label">
                             <button type="button" class="btn btn-primary btn-xs" id="addRow">
                                 <i class="fa fa-plus-circle"></i>
                             </button>
@@ -22,22 +22,7 @@
                     </thead>
                     <tbody>
                     @foreach($oldTestimonials as $index => $testimonial)
-                        <tr class="testimonial-row">
-                            <td>
-                                <textarea name="testimonials[{{ $index }}][content]" class="form-control" rows="2">{{ $testimonial['content'] ?? '' }}</textarea>
-                            </td>
-                            <td>
-                                <input type="text" name="testimonials[{{ $index }}][endorser]" class="form-control" value="{{ $testimonial['endorser'] ?? '' }}">
-                            </td>
-                            <td>
-                                <input type="text" name="testimonials[{{ $index }}][endorser_title]" class="form-control" value="{{ $testimonial['endorser_title'] ?? '' }}">
-                            </td>
-                            <td>
-                                <button type="button" class="btn btn-danger btn-xs remove-row">
-                                    <i class="fa fa-trash-o"></i>
-                                </button>
-                            </td>
-                        </tr>
+                        @include('admin.user.partials.artist.tr.testimonials', [ 'isDefault' => false, ])
                     @endforeach
                     </tbody>
                 </table>
@@ -56,8 +41,7 @@
                 rowIndex: 0,
 
                 init: function () {
-                    this.rowTemplate = this.table.find('tbody tr:first').clone();
-
+                    this.rowTemplate = $('.default-testimonial-template').clone();
                     this.rowIndex = this.table.find('tbody tr').length;
 
                     this.bindEvents();
@@ -78,6 +62,8 @@
                 addRow: function () {
                     const newRow = this.rowTemplate.clone();
 
+                    newRow.removeClass('default-testimonial-template');
+
                     newRow.find('textarea, input').each((_, el) => {
                         const $el = $(el);
                         $el.val('');
@@ -86,6 +72,11 @@
                     });
 
                     this.table.find('tbody').append(newRow);
+
+                    if (tableInstances[this.table.selector]) {
+                        tableInstances[this.table.selector].updateRow(newRow);
+                    }
+
                     this.rowIndex++;
                 },
 

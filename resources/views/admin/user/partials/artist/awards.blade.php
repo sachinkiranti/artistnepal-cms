@@ -4,7 +4,7 @@
         <div class="row">
             <div class="col-sm-12">
                 @php
-                    $oldAwards = old('awards', [[]]);
+                        $oldAwards = old('awards', $data['profile']->awards ?? [[]]);
                 @endphp
 
                 <table class="table table-bordered" id="awardsTable">
@@ -12,7 +12,7 @@
                     <tr>
                         <th class="align-middle">Title</th>
                         <th class="align-middle">Date</th>
-                        <th class="align-middle">
+                        <th class="align-middle no-label">
                             <button type="button" class="btn btn-primary btn-xs" id="addRow">
                                 <i class="fa fa-plus-circle"></i>
                             </button>
@@ -30,7 +30,7 @@
                             </td>
                             <td>
                                 <button type="button" class="btn btn-danger btn-xs remove-row">
-                                    <i class="fa fa-trash-o"></i>
+                                    <i class="fa fa-trash"></i>
                                 </button>
                             </td>
                         </tr>
@@ -46,7 +46,7 @@
 @push('js')
     <script>
         $(function () {
-            const TestimonialManager = {
+            const AwardManager = {
                 table: $('#awardsTable'),
                 rowTemplate: null,
                 rowIndex: 0,
@@ -82,6 +82,11 @@
                     });
 
                     this.table.find('tbody').append(newRow);
+
+                    if (tableInstances[this.table.selector]) {
+                        tableInstances[this.table.selector].updateRow(newRow);
+                    }
+
                     this.rowIndex++;
                 },
 
@@ -96,7 +101,7 @@
                 }
             };
 
-            TestimonialManager.init();
+            AwardManager.init();
         })
     </script>
 @endpush

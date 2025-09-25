@@ -2,12 +2,18 @@
 
 namespace Foundation\Models;
 
+use Foundation\Enums\MediaType;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Kiranti\Supports\BaseModel as Model;
+use Kiranti\Supports\Concerns\HasImage;
 
 class ArtistProfile extends Model
 {
+
+    protected $table = 'artist_profile';
+
+    use HasImage;
 
     protected $fillable = [
         'user_id',
@@ -48,4 +54,24 @@ class ArtistProfile extends Model
         return $this->hasMany(ArtistMedia::class);
     }
 
+    public function galleries(): HasMany
+    {
+        return $this->hasMany(ArtistMedia::class)
+            ->where('media_type', MediaType::IMAGE->value)
+            ->where('is_public', 1)
+            ->orderByDesc('created_at');
+    }
+
+    public static function setFolderName(): string
+    {
+        return 'artist/banner';
+    }
+
+    public function getBannerImage(): string
+    {
+        if (file_exists(public_path('storage/images/'.static::getFolderName().'/'. ($this->banner_image ?? 'N/A')))) {
+            return asset('storage/images/'.static::getFolderName().'/'.$this->banner_image);
+        }
+        return asset('images/admin/default.jpg');
+    }
 }

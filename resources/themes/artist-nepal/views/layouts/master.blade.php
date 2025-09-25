@@ -19,7 +19,7 @@
     <meta name='robots' content='max-image-preview:large' />
 
     @include('layouts.partials.styles')
-    <link rel="canonical" href="https://artistnepal.com/" />
+    <link rel="canonical" href="{{ url('/') }}" />
 </head>
 
 <body class="home wp-singular page-template-default page page-id-439 wp-theme-artistnepal @yield('body-class')">

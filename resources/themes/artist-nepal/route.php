@@ -11,6 +11,11 @@ use App\Http\Controllers\Frontend\{
     Actions\RssNewsAction
 };
 
+Route::group([ 'middleware' => [ 'web', 'auth' ], 'as' => 'artist.', 'prefix' => 'artist', ], function () {
+    Route::match(['GET', 'PUT'], 'profile', \App\Http\Controllers\Frontend\Actions\Artist\ArtistProfileAction::class)->name('profile');
+
+    Route::match(['GET', 'POST'], 'setting', \App\Http\Controllers\Frontend\Actions\Artist\ArtistSettingAction::class)->name('setting');
+});
 
 Route::group([], function () {
     Route::get('/', HomeController::class)->name('home');

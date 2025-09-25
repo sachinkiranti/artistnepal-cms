@@ -4,7 +4,7 @@
         <div class="row">
             <div class="col-sm-12">
                 @php
-                    $oldMedias = old('medias', [[]]);
+                    $oldMedias = old('medias', $data['profile']->medias ?? []);
                 @endphp
 
                 <table class="table table-bordered" id="mediasTable">
@@ -14,7 +14,7 @@
                         <th class="align-middle">Media</th>
                         <th class="align-middle">Title</th>
                         <th class="align-middle">Description</th>
-                        <th class="align-middle">
+                        <th class="align-middle no-label">
                             <button type="button" class="btn btn-primary btn-xs" id="addRow">
                                 <i class="fa fa-plus-circle"></i>
                             </button>
@@ -23,35 +23,7 @@
                     </thead>
                     <tbody>
                     @foreach($oldMedias as $index => $media)
-                        <tr class="media-row">
-                            <td>
-                                <select name="medias[{{ $index }}][type]" class="form-control media-type">
-                                    <option value="image" {{ (isset($media['type']) && $media['type'] == 'image') ? 'selected' : '' }}>Image</option>
-                                    <option value="video" {{ (isset($media['type']) && $media['type'] == 'video') ? 'selected' : '' }}>Video</option>
-                                </select>
-                            </td>
-                            <td>
-                                <input type="{{ (isset($media['type']) && $media['type'] == 'video') ? 'url' : 'file' }}"
-                                       name="medias[{{ $index }}][media]"
-                                       class="form-control media-input">
-                                <div class="preview mt-1">
-                                    @if(isset($media['type']) && $media['type'] == 'image' && isset($media['media']))
-                                        <img src="{{ $media['media'] }}" style="max-width: 100px;">
-                                    @endif
-                                </div>
-                            </td>
-                            <td>
-                                <textarea name="medias[{{ $index }}][title]" class="form-control" rows="2">{{ $media['title'] ?? '' }}</textarea>
-                            </td>
-                            <td>
-                                <textarea name="medias[{{ $index }}][description]" class="form-control" rows="2">{{ $media['description'] ?? '' }}</textarea>
-                            </td>
-                            <td>
-                                <button type="button" class="btn btn-danger btn-xs remove-row">
-                                    <i class="fa fa-trash-o"></i>
-                                </button>
-                            </td>
-                        </tr>
+                        @include('admin.user.partials.artist.tr.medias', [ 'isDefault' => false, ])
                     @endforeach
                     </tbody>
                 </table>
@@ -64,14 +36,13 @@
 @push('js')
     <script>
         $(function () {
-
             const MediaManager = {
                 table: $('#mediasTable'),
                 rowTemplate: null,
                 rowIndex: 0,
 
                 init: function () {
-                    this.rowTemplate = this.table.find('tbody tr:first').clone();
+                    this.rowTemplate = $('.default-media-template').clone();
                     this.rowIndex = this.table.find('tbody tr').length;
 
                     this.bindEvents();
@@ -80,7 +51,7 @@
                 bindEvents: function () {
                     const self = this;
 
-                    this.table.on('click', '#addRow', function () {
+                    this.table.off('click', '#addRow').on('click', '#addRow', function () {
                         self.addRow();
                     });
 
@@ -98,7 +69,10 @@
                 },
 
                 addRow: function () {
+                    console.log('Hello')
                     const newRow = this.rowTemplate.clone();
+
+                    newRow.removeClass('default-media-template');
 
                     newRow.find('input, select, textarea').each((_, el) => {
                         const $el = $(el);
@@ -110,6 +84,11 @@
 
                     newRow.find('.preview').html('');
                     this.table.find('tbody').append(newRow);
+
+                    if (tableInstances[this.table.selector]) {
+                        tableInstances[this.table.selector].updateRow(newRow);
+                    }
+
                     this.rowIndex++;
                 },
 
@@ -128,7 +107,7 @@
                     const $input = $row.find('.media-input');
 
                     const name = $input.attr('name');
-                    $input.replaceWith(`<input type="${type === 'video' ? 'url' : 'file'}" name="${name}" class="form-control media-input">`);
+                    $input.replaceWith(`<input type="${type === '{{ \Foundation\Enums\MediaType::VIDEO->value }}' ? 'url' : 'file'}" name="${name}" class="form-control media-input">`);
 
                     $row.find('.preview').html('');
                 },

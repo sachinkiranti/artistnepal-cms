@@ -13,7 +13,7 @@
                     </label>
                     &nbsp;
                     <label for="others" style="cursor:pointer;">
-                        {!! Form::radio('gender', 2, false, ['id' => 'Others']) !!} <i></i> Others
+                        {!! Form::radio('gender', 2, false, ['id' => 'others']) !!} <i></i> Others
                     </label>
                     <div>
                         @if($errors->has('gender'))
