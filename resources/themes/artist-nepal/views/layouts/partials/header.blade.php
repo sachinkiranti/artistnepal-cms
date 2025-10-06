@@ -4,11 +4,13 @@
             <div class="uk-container">
                 <div class="inner">
                     <div class="logo">
-                        <a href="https://artistnepal.com">
+                        <a href="{{ url('/') }}">
                             <div class="brand"></div>
                         </a>
                     </div>
-                    @include('layouts.partials.primary-nav')
+
+                    <x-primary-menu />
+
                     <div class="navbar-tigger" data-uk-toggle="target: #navbar-mobile">
                         <span></span>
                         <span></span>
@@ -19,7 +21,7 @@
         </header><!-- Site Header End -->
     </div>
     <div class="promo__bck">
-        <img src="@yield('promo-banner', 'https://artistnepal.com/wp-content/uploads/2024/04/Chhulthim-Dollma-Gurung-Actress-producer-VJ-RJ-model.artistnepal-5-.jpg')" />
+        <img src="@yield('promo-banner', \Foundation\Lib\Cache::image('default_banner'))" />
     </div>
     <div class="promo__content promo__content--bottom">
         <div class="promo__container ">

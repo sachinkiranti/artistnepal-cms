@@ -13,7 +13,7 @@
                     @include('admin.appearance.menu.partials.menu-li', [
                         'title' => $page->title,
                         'type'  => 'page',
-                        'id'    => $page->unique_identifier,
+                        'id'    => $page->slug,
                     ])
                 @empty
                     <p>{{ __('No pages Found!') }}</p>

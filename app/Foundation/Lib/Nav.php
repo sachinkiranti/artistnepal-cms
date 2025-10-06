@@ -16,7 +16,7 @@ final class Nav extends BaseConstant
     const PRIMARY_FOOTER_MENU = 2;
     const PRIMARY_RIGHT_FOOTER_MENU = 3;
 
-    public static $sections = [
+    public static array $sections = [
         self::PRIMARY_MENU => 'Primary Menu',
         self::PRIMARY_MOBILE_MENU => 'Primary Mobile Menu',
         self::PRIMARY_FOOTER_MENU => 'Primary Footer Menu',
@@ -28,7 +28,7 @@ final class Nav extends BaseConstant
     const TYPE_CATEGORY = 2;
     const TYPE_POST = 3;
 
-    public static $types = [
+    public static array $types = [
         self::TYPE_CUSTOM_LINK => 'Custom Link',
         self::TYPE_PAGE => 'Page',
         self::TYPE_CATEGORY => 'Category',
@@ -39,25 +39,25 @@ final class Nav extends BaseConstant
     const TARGET_BLANK = 1;
     const TARGET_TOP = 2;
 
-    public static $targets = [
+    public static array $targets = [
         self::TARGET_SELF => '_self',
         self::TARGET_BLANK => '_blank',
         self::TARGET_TOP => '_top',
     ];
 
-    public static function getTargets()
+    public static function getTargets(): array
     {
-        return static::$targets;
+        return Nav::$targets;
     }
 
-    public static function getTypes()
+    public static function getTypes(): array
     {
-        return static::$types;
+        return Nav::$types;
     }
 
-    public static function getSections()
+    public static function getSections(): array
     {
-        return static::$sections;
+        return Nav::$sections;
     }
 
 }

@@ -63,45 +63,66 @@ class SettingService
         try {
             $this->database->beginTransaction();
             if (isset($data['photo'])){
-                $logo_row = $this->model->where('key', 'logo')->first();
+                $logoImg = $this->model->where('key', 'logo')->value('value');
 
-                $this->model->updateOrCreate([ 'key' => 'logo', ], [ 'value' => $this->uploadImage($data['photo'], $this->folder, optional($logo_row)->value), ]);
+                $this->model->updateOrCreate(
+                    [ 'key' => 'logo', ],
+                    [ 'value' => $this->uploadImage($data['photo'], $this->folder, $logoImg), 'updated_by' => auth()->id(), ]
+                );
             }
 
             unset($data['photo']);
 
+            if (isset($data['default_banner_holder'])){
+                $bannerImg = $this->model->where('key', 'default_banner')->value('value');
+
+                $this->model->updateOrCreate(
+                    [ 'key' => 'default_banner', ],
+                    [ 'value' => $this->uploadImage($data['default_banner_holder'], $this->folder, $bannerImg), 'updated_by' => auth()->id(), ]
+                );
+            }
+
+            unset($data['default_banner_holder']);
+
             if (isset($data['homepage_popup_ads_holder'])){
-                $homepage_popup_ads = $this->model->where('key', 'homepage_popup_ads')->first();
+                $homepage_popup_ads = $this->model->where('key', 'homepage_popup_ads')->value('value');
 
                 $this->model
-                    ->updateOrCreate([ 'key' => 'homepage_popup_ads', ],
-                        [ 'value' => $this->uploadImage($data['homepage_popup_ads_holder'], $this->folder, optional($homepage_popup_ads)->value), ]);
+                    ->updateOrCreate(
+                        [ 'key' => 'homepage_popup_ads', ],
+                        [ 'value' => $this->uploadImage($data['homepage_popup_ads_holder'], $this->folder, $homepage_popup_ads), 'updated_by' => auth()->id(), ]
+                    );
             }
 
             unset($data['homepage_popup_ads_holder']);
 
             if (isset($data['single_page_ads_holder'])){
-                $single_page_popup_ads = $this->model->where('key', 'single_page_popup_ads')->first();
+                $single_page_popup_ads = $this->model->where('key', 'single_page_popup_ads')->value('value');
 
                 $this->model
-                    ->updateOrCreate([ 'key' => 'single_page_popup_ads', ],
-                        [ 'value' => $this->uploadImage($data['single_page_ads_holder'], $this->folder, optional($single_page_popup_ads)->value), ]);
+                    ->updateOrCreate(
+                        [ 'key' => 'single_page_popup_ads', ],
+                        [ 'value' => $this->uploadImage($data['single_page_ads_holder'], $this->folder, $single_page_popup_ads), 'updated_by' => auth()->id(), ]
+                    );
             }
 
             unset($data['single_page_ads_holder']);
 
             if (isset($data['social_homepage'])){
-                $social_homepage_image = $this->model->where('key', 'social_homepage_image')->first();
+                $social_homepage_image = $this->model->where('key', 'social_homepage_image')->value('value');
 
                 $this->model
-                    ->updateOrCreate([ 'key' => 'social_homepage_image', ],
-                        [ 'value' => $this->uploadImage($data['social_homepage'], $this->folder, optional($social_homepage_image)->value), ]);
+                    ->updateOrCreate(
+                        [ 'key' => 'social_homepage_image', ],
+                        [ 'value' => $this->uploadImage($data['social_homepage'], $this->folder, $social_homepage_image), ]
+                    );
             }
 
             unset($data['social_homepage']);
 
             foreach ($data as $key => $value) {
-                $this->model->updateOrCreate([ 'key' => $key, ], [
+                $this->model->updateOrCreate(
+                    [ 'key' => $key, ], [
                     'key'        => $key,
                     'value'      => is_iterable($value) ? json_encode($value) : $value,
                     'updated_by' => auth()->id(),
@@ -111,6 +132,9 @@ class SettingService
             $this->database->commit();
             return true;
         } catch (Exception $exception) {
+            \Log::debug('SettingService Update : ', [
+                'error' => $exception->getMessage(),
+            ]);
             $this->database->rollBack();
             return;
         }

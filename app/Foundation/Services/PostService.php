@@ -160,7 +160,11 @@ class PostService extends BaseService
                 'comments'
             ])
 //            ->where('posts.lang', Language::get(active_lang(), true))
-            ->where('posts.unique_identifier', $identifier)
+//            ->where('posts.unique_identifier', $identifier)
+            ->where(function ($query) use ($identifier) {
+                $query->where('posts.unique_identifier', $identifier)
+                    ->orWhere('posts.slug', $identifier);
+            })
             ->where('posts.status', Status::ACTIVE_STATUS)
             ->firstOrFail();
     }

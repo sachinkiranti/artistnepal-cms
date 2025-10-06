@@ -10,6 +10,7 @@
 <div class="hr-line-dashed"></div>
 
 <div class="form-group row">
+    <label class="col-sm-12 col-form-label">Site Logo <span class="required">*</span></label>
     <div class="col-sm-12">
 
         @if($errors->has('photo'))
@@ -28,6 +29,34 @@
 
         {!! Form::file('photo', isset($data['settings']['logo'])?array_merge($file,
            ['data-default-file' => url('storage/images/setting/'.$data['settings']['logo'])]):$file)
+           !!}
+
+
+    </div>
+</div>
+
+<div class="hr-line-dashed"></div>
+
+<div class="form-group row">
+    <label class="col-sm-12 col-form-label">Default Site Banner <span class="required">*</span></label>
+    <div class="col-sm-12">
+
+        @if($errors->has('default_banner_holder'))
+            <label class="has-error" for="available_seat">{{ $errors->first('default_banner_holder') }}</label>
+        @endif
+        @php($file = [
+            'id' => 'image_path',
+            'class' => 'form-control dropify img-responsive',
+            'data-plugin' => 'dropify',
+            'data-height' => '200',
+            'data-show-remove'=>'false',
+            'data-allowed-file-extensions'=>'pdf png psd jpeg jpg gif',
+            'data-disable-remove'=> 'true',
+            'data-max-file-size' => '2M',
+        ])
+
+        {!! Form::file('default_banner_holder', isset($data['settings']['default_banner'])?array_merge($file,
+           ['data-default-file' => url('storage/images/setting/'.$data['settings']['default_banner'])]):$file)
            !!}
 
 

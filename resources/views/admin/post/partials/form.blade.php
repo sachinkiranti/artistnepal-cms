@@ -7,7 +7,7 @@
             @isset($data['post'])
             <p class="pull-right">
                 <b style="text-decoration: underline;">Views : {{ $data['post']->views }}</b>
-                <a href="{{ route('post.single', $data['post']->unique_identifier) }}" target="_blank" title="Show to Frontend"><i class="fa fa-eye btn btn-primary btn-xs"></i> </a>
+                <a href="{{ $data['post']->getFrontendUrl() }}" target="_blank" title="Show to Frontend"><i class="fa fa-eye btn btn-primary btn-xs"></i> </a>
             </p>
             @endisset
         </div>
@@ -36,17 +36,17 @@
 
             <div class="hr-line-dashed"></div>
 
-{{--            <div class="form-group row">--}}
-{{--                <label class="col-sm-12 col-form-label is_required">Slug <span class="required">*</span></label>--}}
-{{--                <div class="col-sm-12 {{ $errors->has('slug') ? 'has-error' : '' }}">--}}
-{{--                    {!! Form::text('slug', null, [ 'class' => 'form-control post-slug' ]) !!}--}}
-{{--                    @if($errors->has('slug'))--}}
-{{--                        <label class="has-error" for="slug">{{ $errors->first('slug') }}</label>--}}
-{{--                    @endif--}}
-{{--                </div>--}}
-{{--            </div>--}}
+            <div class="form-group row">
+                <label class="col-sm-12 col-form-label is_required">Slug <span class="required">*</span></label>
+                <div class="col-sm-12 {{ $errors->has('slug') ? 'has-error' : '' }}">
+                    {!! Form::text('slug', null, [ 'class' => 'form-control post-slug' ]) !!}
+                    @if($errors->has('slug'))
+                        <label class="has-error" for="slug">{{ $errors->first('slug') }}</label>
+                    @endif
+                </div>
+            </div>
 
-{{--            <div class="hr-line-dashed"></div>--}}
+            <div class="hr-line-dashed"></div>
             <div class="form-group row">
                 <label class="col-sm-12 col-form-label is_required">Content</label>
                 <div class="col-sm-12 {{ $errors->has('content') ? 'has-error' : '' }}">

@@ -129,4 +129,19 @@ class Post extends Model implements Feedable
             ->limit(25)
             ->get();
     }
+
+    public function getFrontendUrl(): string
+    {
+        $isPost = $this->post_type == \Foundation\Lib\PostType::POST_TYPE_POST;
+        return route(($isPost ? 'post' : 'page').'.single', ($isPost ? $this->unique_identifier : $this->slug) ?? 22121);
+    }
+
+    public function getBanner(): string
+    {
+        if (file_exists(public_path('storage/images/'.static::getFolderName().'/'. ($this->image ?? 'N/A')))) {
+            return asset('storage/images/'.static::getFolderName().'/'.$this->image);
+        }
+        return \Foundation\Lib\Cache::image('default_banner') ?? asset('images/admin/default.jpg');
+    }
+
 }

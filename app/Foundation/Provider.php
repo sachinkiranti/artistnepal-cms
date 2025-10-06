@@ -24,10 +24,10 @@ final class Provider extends ServiceProvider
      *
      * @var array
      */
-    private static $shareable = [
-        'pages.shared.primary-menu' => PrimaryMenuViewComposer::class,
-        'pages.shared.footer-menu' => FooterMenuViewComposer::class,
-        'pages.shared.mobile-menu'  => MobileMenuViewComposer::class,
+    private static array $shareable = [
+        'shared.menu.primary-menu' => PrimaryMenuViewComposer::class,
+        'shared.menu.footer-menu' => FooterMenuViewComposer::class,
+        'shared.menu.mobile-menu'  => MobileMenuViewComposer::class,
         'pages.shared.right-footer-menu'  => FooterRightMenuViewComposer::class,
         'pages.shared.team'  => TeamViewComposer::class,
     ];
@@ -39,14 +39,14 @@ final class Provider extends ServiceProvider
      *
      * @var array
      */
-    private static $components = [
+    private static array $components = [
         'admin.common.components.summary' => 'summary',
         'admin.common.breadcrumbs'        => 'breadcrumb',
         'admin.common.advanced-filter'    => 'filter',
         'admin.common.summary-script'     => 'summaryscripts',
-        'pages.shared.primary-menu'       => 'primary',
-        'pages.shared.mobile-menu'        => 'mobile',
-        'pages.shared.footer-menu'        => 'footerMenu',
+        'shared.menu.primary-menu'        => 'primary-menu',
+        'shared.menu.mobile-menu'         => 'mobile-menu',
+        'shared.menu.footer-menu'         => 'footer-menu',
         'pages.shared.right-footer-menu'  => 'rightFooterMenu',
         'pages.shared.team'               => 'team',
     ];
@@ -58,11 +58,11 @@ final class Provider extends ServiceProvider
      */
     public function boot()
     {
-        foreach ( static::$components as $view => $alias ) {
+        foreach (Provider::$components as $view => $alias ) {
             \Blade::component($view, $alias);
         }
 
-        foreach ( static::$shareable as $view => $composer ) {
+        foreach (Provider::$shareable as $view => $composer ) {
             \View::composer( $view, $composer );
         }
 

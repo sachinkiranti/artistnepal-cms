@@ -50,25 +50,7 @@
                 <div class="section-inner">
                     <div class="columns uk-grid" data-uk-grid="">
                         <div class="pr__links column">
-
-
-                            <div class="inner">
-                                <a href="https://artistnepal.com/aboutus/">About us</a>
-                                <a href="https://artistnepal.com/privacy-policy/terms-condition/">Terms
-                                    &#038; Condition</a>
-                                <a href="https://artistnepal.com/privacy-policy/">Privacy Policy</a>
-                                <a href="https://artistnepal.com/how-it-works/">How it works?</a>
-                                <a href="https://artistnepal.com/for-artist/">For Artist</a>
-                                <a href="https://artistnepal.com/for-business/">For Business</a>
-                                <a href="https://artistnepal.com/help/">Help</a>
-                                <a href="https://artistnepal.com/listing/">Find Artist</a>
-                                <a href="https://events.artistnepal.com/">Artist Events</a>
-                                <a href="https://www.artistsansar.com/">Artist News</a>
-                                <a href="https://artistnepal.org/">artist fund</a>
-                                <a href="https://academy.artistnepal.com/">academy</a>
-                                <a href="https://studios.artistnepal.com/">Studios</a>
-                                <a href="https://artistnepal.com/media/">Media</a>
-                            </div>
+                            <x-footer-menu />
                         </div>
                         <div class="pr__copyrights column">
                             <div class="inner">

@@ -1,6 +1,6 @@
 <ul class="normal-actions" style="display: inline-flex;">
     <li style="margin-left: 3px;">
-        <a href="{{ route('post.single', $data->unique_identifier) }}" target="_blank" title="Show to Frontend"><i class="fa fa-globe btn btn-primary btn-xs"></i> </a>
+        <a href="{{ $data->getFrontendUrl() }}" target="_blank" title="Show to Frontend"><i class="fa fa-globe btn btn-primary btn-xs"></i> </a>
     </li>
     @can("admin.{$model}.edit")
         <li style="margin-left: 3px;">

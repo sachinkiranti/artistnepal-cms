@@ -213,20 +213,18 @@ class PostController extends BaseController
         if( $post = $this->postService->query()->find($postID) ){
             $this->postService->syncData($post, $request->get('tags'));
 
-            if ($post) {
-                foreach ($request->get('images') as $key => $image) {
+            foreach ($request->get('images') as $key => $image) {
 
-                    if ($key && $image) {
-                        app('db')
-                            ->table('post_images')
-                            ->updateOrInsert([
-                                'post_id'    => $postID,
-                                'image'      => $request->input('images.'.$key),
-                                'caption'    => $request->input('caption.'.$key),
-                            ], [ 'added_by' => auth()->id(), 'created_at' => now(), ]);
-                    }
-
+                if ($key && $image) {
+                    app('db')
+                        ->table('post_images')
+                        ->updateOrInsert([
+                            'post_id'    => $postID,
+                            'image'      => $request->input('images.'.$key),
+                            'caption'    => $request->input('caption.'.$key),
+                        ], [ 'added_by' => auth()->id(), 'created_at' => now(), ]);
                 }
+
             }
         }
 

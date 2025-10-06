@@ -51,8 +51,8 @@ class MenuController extends BaseController
     public function __invoke()
     {
         $data = [];
-        $data['posts']   = $this->postService->getByPostType(PostType::POST_TYPE_POST, 10);
-        $data['pages']   = $this->postService->getByPostType(PostType::POST_TYPE_PAGE, 10);
+        $data['posts']   = $this->postService->getByPostType(PostType::POST_TYPE_POST, 50);
+        $data['pages']   = $this->postService->getByPostType(PostType::POST_TYPE_PAGE, 50);
         $data['targets'] = Nav::getTargets();
         $data['categories'] = $this->categoryService->getTree(50);
         $data['menu-sections'] = Nav::getSections();

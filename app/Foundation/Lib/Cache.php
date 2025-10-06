@@ -83,6 +83,12 @@ final class Cache
         return Utility::isJson($setting) ? json_decode( $setting ) : $setting;
     }
 
+    public static function image(string $key): string
+    {
+        $imagePath = self::setting($key);
+        return asset( 'storage/images/setting/'.$imagePath);
+    }
+
     public static function clear()
     {
         return \Cache::clear();

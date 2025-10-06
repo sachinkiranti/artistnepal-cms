@@ -16,6 +16,7 @@ final class Meta
     private const META_MAPPER = [
         'site-name'     => 'company',
         'site-logo'     => 'logo',
+        'site-default_banner'     => 'default_banner',
     ];
 
     private const FUNC_MAPPER = [

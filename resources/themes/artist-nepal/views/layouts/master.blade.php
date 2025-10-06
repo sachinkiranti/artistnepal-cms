@@ -24,7 +24,7 @@
 
 <body class="home wp-singular page-template-default page page-id-439 wp-theme-artistnepal @yield('body-class')">
 
-    @include('layouts.partials.primary-mobile-nav')
+    <x-mobile-menu />
 
     <div class="pr__wrapper" id="site-wrapper">
         @include('layouts.partials.header')
