@@ -74,20 +74,20 @@ class UserService extends BaseService
             ->latest();
     }
 
-    /**
-     * Get Users having the given role
-     *
-     * @param $role
-     * @return mixed
-     */
-    public function getUsersHavingRole($role)
+    public function getUsersHavingRole($role, $limit = 0)
     {
-        return $this->model
+        $queries = $this->model
             ->select('*')
             ->selectRaw('CONCAT_WS(" ", first_name, middle_name, last_name) AS full_name')
             ->whereHas('roles', function (Builder $query) use ($role) {
             $query->where('slug', 'like', $role);
-        })->get();
+        });
+
+        if ($limit) {
+            $queries->limit($limit);
+        }
+
+        return $queries->get();
     }
 
     public function pluckAuthor()

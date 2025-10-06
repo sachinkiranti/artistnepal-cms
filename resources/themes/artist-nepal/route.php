@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\Frontend\{
+use App\Http\Controllers\Frontend\{Actions\ListingAction,
     HomeController,
     SingleController,
     AuthorController,
@@ -8,8 +8,7 @@ use App\Http\Controllers\Frontend\{
     PageController,
     GalleryController,
     Actions\ReactionAction,
-    Actions\RssNewsAction
-};
+    Actions\RssNewsAction};
 
 Route::group([ 'middleware' => [ 'web', 'auth' ], 'as' => 'artist.', 'prefix' => 'artist', ], function () {
     Route::match(['GET', 'PUT'], 'profile', \App\Http\Controllers\Frontend\Actions\Artist\ArtistProfileAction::class)->name('profile');
@@ -18,9 +17,9 @@ Route::group([ 'middleware' => [ 'web', 'auth' ], 'as' => 'artist.', 'prefix' =>
 });
 
 Route::group([], function () {
-    Route::get('/', HomeController::class)->name('home');
 
-    Route::get('/detail/{slug}.html', SingleController::class)->name('post.single');
+    Route::get('/', HomeController::class)->name('home');
+    Route::get('/listing', ListingAction::class)->name('listing');
 
     Route::get('/author/{author}', AuthorController::class)->name('author.single');
     Route::get('/artist/{artist}', ArtistController::class)->name('artist.single');

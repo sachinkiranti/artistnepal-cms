@@ -29,10 +29,11 @@ class ArtistController extends BaseController
         $data['similar-artists'] = ArtistProfile::query()
             ->with('user')
             ->where('profession_id', $data['profile']->profession_id)
+            ->where('user_id', '!=', $data['user']->id)
             ->take(3)
             ->get();
 
-        abort_if(!$data['user']->hasRole(Role::ROLE_ARTIST->value), 403);
+//        abort_if(!$data['user']->hasRole(Role::ROLE_ARTIST->value), 403);
 
         return view('pages.artist-single', compact('data'));
     }

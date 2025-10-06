@@ -31,7 +31,7 @@
                                             style="display: inline-block">{{ $data['user']->getFullName() }}</h2>
                                     </div>
 
-                                    <span class="subtitle pr__heading__secondary">{{ ucwords($data['category']->category_name) }}</span></div>
+                                    <span class="subtitle pr__heading__secondary">{{ ucwords($data['category']?->category_name) }}</span></div>
 
                                 <div class="right">
                                     <a href="https://artistnepal.com/wp-login.php"
@@ -48,7 +48,7 @@
                                     </li>
                                     <li class="date">
                                         <strong>Profession</strong>
-                                        <span>{{ ucwords($data['category']->category_name) }}</span>
+                                        <span>{{ ucwords($data['category']?->category_name) }}</span>
                                     </li>
                                     <li>
                                     </li>
@@ -117,7 +117,7 @@
                                                 </li>
                                                 <li class="date">
                                                     <strong>Profession</strong>
-                                                    <span>{{ ucwords($data['category']->category_name) }}</span>
+                                                    <span>{{ ucwords($data['category']?->category_name) }}</span>
                                                 </li>
                                                 <li>
                                                 </li>

@@ -36,7 +36,7 @@
                                         </div>
                                         <div class="bottom">
                                             <ul class="meta">
-                                                <li class="meta-date">{{ ucwords($data['category']->category_name) }}</li>
+                                                <li class="meta-date">{{ ucwords($data['category']?->category_name) }}</li>
                                             </ul>
                                         </div>
                                     </div>
