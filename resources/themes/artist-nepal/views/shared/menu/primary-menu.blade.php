@@ -12,6 +12,16 @@
                     </a>
                 </li>
             @endforeach
+
+            @if(auth()->check() && auth()->user()->hasRole(\App\Foundation\Enums\Role::ROLE_ARTIST->value))
+                <li
+                    class="menu-item menu-item--primary"
+                >
+                    <a href="{{ route('artist.profile') }}">
+                        <i class="fa fa-user"></i> My Profile
+                    </a>
+                </li>
+            @endif
         </ul>
     </nav>
 </div>

@@ -34,7 +34,7 @@
                                     <span class="subtitle pr__heading__secondary">{{ ucwords($data['category']?->category_name) }}</span></div>
 
                                 <div class="right">
-                                    <a href="https://artistnepal.com/wp-login.php"
+                                    <a href="{{ url('/') }}"
                                        class="button uk-button uk-button-large uk-button-default uk-margin-top login-required">Login
                                         to Follow</a></div>
                             </div>

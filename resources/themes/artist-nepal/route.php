@@ -16,9 +16,14 @@ Route::group([ 'middleware' => [ 'web', 'auth' ], 'as' => 'artist.', 'prefix' =>
     Route::match(['GET', 'POST'], 'setting', \App\Http\Controllers\Frontend\Actions\Artist\ArtistSettingAction::class)->name('setting');
 });
 
-Route::group([], function () {
+Route::group([ 'middleware' => [ 'web' ] ], function () {
 
     Route::get('/', HomeController::class)->name('home');
+
+    Route::match([ 'GET', 'POST' ], '/artist/register', \App\Http\Controllers\Frontend\Actions\Auth\RegisterAction::class)
+        ->middleware('guest')
+        ->name('artist.register');
+
     Route::get('/listing', ListingAction::class)->name('listing');
 
     Route::get('/author/{author}', AuthorController::class)->name('author.single');
@@ -33,4 +38,10 @@ Route::group([], function () {
         ->middleware('nep.ajax');
 
     Route::get('news/rss', RssNewsAction::class)->name('news.rss');
+
+    Route::group([ 'middleware' => [ 'guest' ], 'as' => 'app.', 'prefix' => 'app',  ], function () {
+        Route::match([ 'GET', 'POST' ], 'login', \App\Http\Controllers\Frontend\Actions\Auth\LoginAction::class)->name('login');
+        Route::match([ 'GET', 'POST' ], 'register', \App\Http\Controllers\Frontend\Actions\Auth\RegisterAction::class)->name('register');
+        Route::match([ 'GET', 'POST' ], 'password/reset', \App\Http\Controllers\Frontend\Actions\Auth\ResetAction::class)->name('reset-password');
+    });
 });
