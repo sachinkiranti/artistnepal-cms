@@ -15,7 +15,7 @@ class DatabaseSeeder extends Seeder
     {
         \Artisan::call('cache:clear');
         $this->call([
-            WidgetManagerSeeder::class,
+//            WidgetManagerSeeder::class,
             RoleTableSeeder::class,
             UserTableSeeder::class,
             TagTableSeeder::class,
