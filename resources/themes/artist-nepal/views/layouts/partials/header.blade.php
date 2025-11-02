@@ -5,7 +5,7 @@
                 <div class="inner">
                     <div class="logo">
                         <a href="{{ url('/') }}">
-                            <div class="brand"></div>
+                            <div class="brand" style="background-image: url('/dist/img/logo.svg');"></div>
                         </a>
                     </div>
 

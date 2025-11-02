@@ -4,9 +4,7 @@
 
 @section('promo-container')
     <hr class="line pr__hr__secondary">
-    <h2 class="title uk-heading-hero">Know about your favorite artist with ArtistNepal!</h2>
-    <a class="button uk-button uk-button-large uk-button-default uk-margin-top"
-       href="#pr__artist_search" data-uk-scroll="">Find Artist</a>
+    <h2 class="title uk-heading-hero">Edit your profile!</h2>
 @endsection
 
 @push('metas')
