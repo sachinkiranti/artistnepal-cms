@@ -121,17 +121,18 @@
                                                                         Get the word out about your shows, exhibitions,
                                                                         and other creative events to the right audience.
                                                                     </p>
-                                                                </div></div>
+                                                                </div>
+                                                            </div>
                                                             <p style="font-size: 1.1rem; color: #2D3748; margin: 50px 0 40px; line-height: 1.7; max-width: 800px; margin-left: auto; margin-right: auto;">
                                                                 Create your account or claim your profile today at
                                                                 <strong
                                                                     style="color: #e10d6e;">www.artistnepal.com</strong>
                                                                 and let your creative journey begin!
                                                             </p>
-                                                                <a href="https://artistnepal.com/artist/register/"
-                                                                   style="display: inline-block; padding: 15px 40px; background: linear-gradient(135deg, #6C63FF, #e10d6e); color: white; font-size: 1.2rem; font-weight: 600; text-decoration: none; border-radius: 50px; box-shadow: 0 10px 30px rgba(108, 99, 255, 0.3); transition: all 0.3s ease;">
-                                                                    Join Our Creative Community<br>
-                                                                </a></div>
+                                                            <a href="https://artistnepal.com/artist/register/"
+                                                               style="display: inline-block; padding: 15px 40px; background: linear-gradient(135deg, #6C63FF, #e10d6e); color: white; font-size: 1.2rem; font-weight: 600; text-decoration: none; border-radius: 50px; box-shadow: 0 10px 30px rgba(108, 99, 255, 0.3); transition: all 0.3s ease;">
+                                                                Join Our Creative Community<br>
+                                                            </a></div>
                                                     </div>
 
                                                 </div>
@@ -175,164 +176,165 @@
                 </div>
             </section>
             <hr class="pr__vr__section">
+        </div>
+    </div>
 
+@endsection
 
-            @endsection
+@push('css')
+    <style>
+        /* FAQ Styles */
+        .artistnepal-faq {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(108, 99, 255, 0.1);
+            overflow: hidden;
+        }
 
-            @push('css')
-                <style>
-                    /* FAQ Styles */
-                    .artistnepal-faq {
-                        background: white;
-                        border-radius: 12px;
-                        box-shadow: 0 5px 15px rgba(108, 99, 255, 0.1);
-                        overflow: hidden;
-                    }
+        .faq-item {
+            border-bottom: 1px solid #f0f0f0;
+        }
 
-                    .faq-item {
-                        border-bottom: 1px solid #f0f0f0;
-                    }
+        .faq-question {
+            padding: 20px 15px;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            transition: background 0.2s ease;
+        }
 
-                    .faq-question {
-                        padding: 20px 15px;
-                        display: flex;
-                        align-items: center;
-                        cursor: pointer;
-                        transition: background 0.2s ease;
-                    }
+        .faq-question:hover {
+            background: rgba(113, 128, 150, 0.05);
+        }
 
-                    .faq-question:hover {
-                        background: rgba(113, 128, 150, 0.05);
-                    }
+        .faq-icon {
+            width: 30px;
+            height: 30px;
+            background: #718096;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 12px;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
 
-                    .faq-icon {
-                        width: 30px;
-                        height: 30px;
-                        background: #718096;
-                        color: white;
-                        border-radius: 50%;
-                        display: flex;
-                        align-items: center;
-                        justify-content: center;
-                        margin-right: 12px;
-                        font-size: 1.2rem;
-                        flex-shrink: 0;
-                    }
+        .faq-title {
+            font-size: 1.1rem;
+            color: #2D3748;
+            margin: 0;
+            flex-grow: 1;
+        }
 
-                    .faq-title {
-                        font-size: 1.1rem;
-                        color: #2D3748;
-                        margin: 0;
-                        flex-grow: 1;
-                    }
+        .faq-toggle {
+            font-size: 1.3rem;
+            color: #718096;
+            margin-left: 10px;
+            transition: transform 0.3s ease;
+        }
 
-                    .faq-toggle {
-                        font-size: 1.3rem;
-                        color: #718096;
-                        margin-left: 10px;
-                        transition: transform 0.3s ease;
-                    }
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            padding: 0 15px 0 57px;
+        }
 
-                    .faq-answer {
-                        max-height: 0;
-                        overflow: hidden;
-                        transition: max-height 0.3s ease;
-                        padding: 0 15px 0 57px;
-                    }
+        .faq-content {
+            padding-bottom: 20px;
+            color: #4A5568;
+            line-height: 1.6;
+            font-size: 0.95rem;
+        }
 
-                    .faq-content {
-                        padding-bottom: 20px;
-                        color: #4A5568;
-                        line-height: 1.6;
-                        font-size: 0.95rem;
-                    }
+        .nepali-text {
+            font-style: italic;
+            color: #718096;
+            border-left: 3px solid #e10d6e;
+            padding-left: 12px;
+            margin-top: 12px;
+            font-size: 0.9rem;
+            line-height: 1.6;
+            display: block;
+        }
 
-                    .nepali-text {
-                        font-style: italic;
-                        color: #718096;
-                        border-left: 3px solid #e10d6e;
-                        padding-left: 12px;
-                        margin-top: 12px;
-                        font-size: 0.9rem;
-                        line-height: 1.6;
-                        display: block;
-                    }
+        .faq-active .faq-toggle {
+            transform: rotate(45deg);
+        }
 
-                    .faq-active .faq-toggle {
-                        transform: rotate(45deg);
-                    }
+        .faq-active .faq-answer {
+            max-height: 500px;
+        }
 
-                    .faq-active .faq-answer {
-                        max-height: 500px;
-                    }
+        .sign-up-now-for-free {
+            display: inline-block;
+            padding: 8px 25px;
+            background: white;
+            color: #6C63FF;
+            font-size: 1.2rem;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 50px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+            position: relative;
+            z-index: 2;
+        }
 
-                    .sign-up-now-for-free {
-                        display: inline-block;
-                        padding: 8px 25px;
-                        background: white;
-                        color: #6C63FF;
-                        font-size: 1.2rem;
-                        font-weight: 600;
-                        text-decoration: none;
-                        border-radius: 50px;
-                        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-                        transition: all 0.3s ease;
-                        position: relative;
-                        z-index: 2;
-                    }
+        .gallery-wrap-inset {
+            margin-left: -10px;
+            margin-right: -10px;
+        }
 
-                    .gallery-wrap-inset {
-                        margin-left: -10px;
-                        margin-right: -10px;
-                    }
+        @media only screen and (min-width: 1281px) {
+            .gallery-wrap-inset {
+                max-width: 90%;
+                margin: 0 auto;
+            }
+        }
 
-                    @media only screen and (min-width: 1281px) {
-                        .gallery-wrap-inset {
-                            max-width: 90%;
-                            margin: 0 auto;
-                        }
-                    }
+        .grid-item {
+            display: block;
+            width: calc(33.33% - 20px);
+            padding: 10px;
+        }
 
-                    .grid-item {
-                        display: block;
-                        width: calc(33.33% - 20px);
-                        padding: 10px;
-                    }
+        .grid-item--small {
+            width: calc(25% - 20px);
+            padding: 10px;
+        }
 
-                    .grid-item--small {
-                        width: calc(25% - 20px);
-                        padding: 10px;
-                    }
+        @media only screen and (max-width: 769px) {
+            .grid-item {
+                width: calc(50% - 10px);
+                padding: 5px;
+            }
+        }
 
-                    @media only screen and (max-width: 769px) {
-                        .grid-item {
-                            width: calc(50% - 10px);
-                            padding: 5px;
-                        }
-                    }
+        .search-box h3 {
+            display: none;
+        }
+    </style>
+@endpush
 
-                    .search-box h3 {
-                        display: none;
-                    }
-                </style>
-            @endpush
-
-            @push('js')
-                <script
-                    src="{{ asset('dist/themes/artist-nepal/js/imagesloaded.pkgd.js') }}"></script>
-                <script
-                    src="{{ asset('dist/themes/artist-nepal/js/masonry.pkgd.min.js') }}"></script>
-                <script>
-                    var grid = document.querySelector('.gallery-grid');
-                    var msnry;
-                    imagesLoaded(grid, function () {
-                        // init Isotope after all images have loaded
-                        msnry = new Masonry(grid, {
-                            itemSelector: '.grid-item',
-                            //columnWidth: '.grid-sizer',
-                            percentPosition: true,
-                            //gutter: 10
-                        });
-                    });
-                </script>
-    @endpush
+@push('js')
+    <script
+        src="{{ asset('dist/themes/artist-nepal/js/imagesloaded.pkgd.js') }}"></script>
+    <script
+        src="{{ asset('dist/themes/artist-nepal/js/masonry.pkgd.min.js') }}"></script>
+    <script>
+        var grid = document.querySelector('.gallery-grid');
+        var msnry;
+        imagesLoaded(grid, function () {
+            // init Isotope after all images have loaded
+            msnry = new Masonry(grid, {
+                itemSelector: '.grid-item',
+                //columnWidth: '.grid-sizer',
+                percentPosition: true,
+                //gutter: 10
+            });
+        });
+    </script>
+@endpush
