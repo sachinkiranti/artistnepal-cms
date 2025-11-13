@@ -9,6 +9,25 @@ class LoginAction
 
     public function __invoke( Request $request )
     {
+
+        if ($request->isMethod('post')) {
+            $credentials = $request->validate([
+                'user_login' => 'required|string',
+                'pwd' => 'required|string',
+            ]);
+
+            if (\Auth::attempt(['email' => $credentials['user_login'], 'password' => $credentials['pwd']])) {
+                $request->session()->regenerate();
+
+                return redirect(url('/'))
+                    ->with('success', 'Logged in successfully.');
+            }
+
+            return back()->withErrors([
+                'user_login' => 'Invalid credentials provided.',
+            ])->onlyInput('user_login');
+        }
+
         return view('pages.auth.login');
     }
 

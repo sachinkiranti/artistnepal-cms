@@ -61,12 +61,12 @@
                     </b>
                 </div>
 
-                <form name="custom_loginform" id="custom_loginform" action="https://artistnepal.com/wp-login.php"
+                <form name="custom_loginform" id="custom_loginform" action="{{ route('app.login') }}"
                       method="post">
-                    <div class="googlesitekit-sign-in-with-google__frontend-output-button"></div>
+                    @csrf
                     <p class="login-username">
                         <label for="user_login">Username or Email</label>
-                        <input type="text" name="log" id="user_login" autocomplete="username" class="input" value=""
+                        <input type="text" name="user_login" id="user_login" autocomplete="username" class="input" value="{{ old('user_login') }}"
                                size="20"/>
                     </p>
                     <p class="login-password">
@@ -79,7 +79,6 @@
                     <p class="login-submit">
                         <input type="submit" name="wp-submit" id="wp-submit" class="button button-primary"
                                value="Log In"/>
-                        <input type="hidden" name="redirect_to" value="https://artistnepal.com/wp-admin"/>
                     </p></form>
                 <div class="lost-password">
                     <a href="{{ route('app.register') }}">Register</a> |
