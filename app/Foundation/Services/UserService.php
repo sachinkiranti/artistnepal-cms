@@ -90,6 +90,18 @@ class UserService extends BaseService
         return $queries->get();
     }
 
+    public function getArtists(int $paginate = 10)
+    {
+        $queries = $this->model
+            ->select('*')
+            ->selectRaw('CONCAT_WS(" ", first_name, middle_name, last_name) AS full_name')
+            ->whereHas('roles', function (Builder $query) {
+                $query->where('slug', 'like', \App\Foundation\Enums\Role::ROLE_ARTIST);
+            });
+
+        return $queries->paginate($paginate);
+    }
+
     public function pluckAuthor()
     {
         return $this->getUsersHavingRole(Role::$current[Role::ROLE_AUTHOR])

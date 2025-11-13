@@ -1,4 +1,4 @@
-<div class="promo promo--white">
+<div class="promo @yield('header-style') promo--white">
     <div class="promo__content">
         <header class="pr__header pr__dark">
             <div class="uk-container">
