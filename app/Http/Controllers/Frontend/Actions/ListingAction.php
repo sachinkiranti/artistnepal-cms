@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Frontend\Actions;
 use App\Foundation\Enums\Role;
 use Foundation\Services\UserService;
 use App\Http\Controllers\Frontend\BaseController;
+use Illuminate\Http\Request;
 
 class ListingAction extends BaseController
 {
@@ -13,10 +14,12 @@ class ListingAction extends BaseController
         private readonly UserService $userService
     ) {}
 
-    public function __invoke()
+    public function __invoke( Request $request )
     {
         $data = [];
-        $data['artists'] = $this->userService->getArtists(2);
+        $data['artists'] = $this->userService->getArtists(2, $request->only([
+            'category', 'search', 'eras', 'artist_status'
+        ]));
         return view('pages.archive', compact('data'));
     }
 

@@ -90,7 +90,7 @@ class UserService extends BaseService
         return $queries->get();
     }
 
-    public function getArtists(int $paginate = 10)
+    public function getArtists(int $paginate = 10, array $filters = [])
     {
         $queries = $this->model
             ->select('*')
@@ -98,6 +98,25 @@ class UserService extends BaseService
             ->whereHas('roles', function (Builder $query) {
                 $query->where('slug', 'like', \App\Foundation\Enums\Role::ROLE_ARTIST);
             });
+
+//        $queries->when(!empty($filters['category']), function ($query) use ($filters) {
+//            $query->where('category_id', $filters['category']);
+//        })
+        $queries->when(!empty($filters['search']), function ($query) use ($filters) {
+                $search = $filters['search'];
+                $query->where(function ($q) use ($search) {
+                    $q->where('first_name', 'like', "%{$search}%")
+                        ->orWhere('middle_name', 'like', "%{$search}%")
+                        ->orWhere('last_name', 'like', "%{$search}%")
+                        ->orWhereRaw('CONCAT_WS(" ", first_name, middle_name, last_name) LIKE ?', ["%{$search}%"]);
+                });
+            });
+//        ->when(!empty($filters['eras']), function ($query) use ($filters) {
+//            $query->whereIn('era_id', (array) $filters['eras']);
+//        })
+//        ->when(!empty($filters['artist_status']), function ($query) use ($filters) {
+//            $query->where('status', $filters['artist_status']);
+//        });
 
         return $queries->paginate($paginate);
     }

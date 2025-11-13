@@ -40,7 +40,6 @@
                                                             <div class="">
                                                                 @include('shared.search-form-main')
                                                             </div>
-
                                                         </div>
                                                     </div><!-- Container End -->
                                                 </div><!-- Outer End -->
