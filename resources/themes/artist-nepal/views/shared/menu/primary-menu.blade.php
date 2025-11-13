@@ -21,6 +21,19 @@
                         <i class="fa fa-user"></i> My Profile
                     </a>
                 </li>
+
+                    <li
+                        class="menu-item menu-item--primary"
+                    >
+                        <a href="javascript:void(0);"
+                           onclick="event.preventDefault();document.getElementById('logout-form').submit();">
+                            <i class="fa fa-sign-out"></i>
+                            <i class="fa fa-sign-out-alt"></i> Logout
+                        </a>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                            {!! csrf_field() !!}
+                        </form>
+                    </li>
             @endif
         </ul>
     </nav>
