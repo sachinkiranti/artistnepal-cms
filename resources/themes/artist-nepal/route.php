@@ -1,6 +1,7 @@
 <?php
 
-use App\Http\Controllers\Frontend\{Actions\ListingAction,
+use App\Http\Controllers\Frontend\{Actions\Artist\ViewPostAction,
+    Actions\ListingAction,
     HomeController,
     SingleController,
     AuthorController,
@@ -30,6 +31,7 @@ Route::group([ 'middleware' => [ 'web' ] ], function () {
     Route::get('/artist/{artist}', ArtistController::class)->name('artist.single');
 
     Route::get('/page/{slug}', PageController::class)->name('page.single');
+    Route::get('/post/{slug}', ViewPostAction::class)->name('post.single');
 
     Route::get('/gallery/{slug?}', GalleryController::class)->name('gallery');
 

@@ -6,7 +6,7 @@
 
 @section('promo-container')
     <hr class="line pr__hr__secondary">
-    <h2 class="page-title  uk-heading-primary" style="color: white;">{{ $data['page']->title }}</h2>
+    <h2 class="page-title  uk-heading-primary" style="color: white;">{{ ucwords($data['page']->title) }}</h2>
 @endsection
 
 @push('metas')

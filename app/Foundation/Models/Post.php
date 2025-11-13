@@ -133,7 +133,8 @@ class Post extends Model implements Feedable
     public function getFrontendUrl(): string
     {
         $isPost = $this->post_type == \Foundation\Lib\PostType::POST_TYPE_POST;
-        return route(($isPost ? 'post' : 'page').'.single', ($isPost ? $this->unique_identifier : $this->slug) ?? 22121);
+
+        return route(($isPost ? 'post' : 'page').'.single', $this->slug ?? $this->unique_identifier);
     }
 
     public function getBanner(): string
