@@ -17,70 +17,33 @@
                 <div class="blog-listing style-one blog-slider owl-carousel" data-items="4" data-loop="true"
                      data-center="true" data-margin="30" data-autoplay="true" data-dots="true">
 
+                    @foreach($data['blogs'] as $blog)
                     <article class="post type-post">
                         <div class="outer">
                             <div class="featured-image">
                                 <div class="image pr__image__cover"
-                                     data-src="https://artistnepal.com/wp-content/uploads/2025/05/how-to-follow-artist-at-artistnepal.png"
+                                     data-src="{{ $blog->getBanner() }}"
                                      data-uk-img=""></div>
                             </div>
                             <div class="inner">
                                 <a class="category"
-                                   href="https://artistnepal.com/how-to-follow-your-favorite-artist-on-artistnepal-com/">May
-                                    15, 2025</a>
-                                <h3 class="title uk-h5"><a
-                                        href="https://artistnepal.com/how-to-follow-your-favorite-artist-on-artistnepal-com/">How
-                                        to Follow Your Favorite Artist on ArtistNepal.com</a></h3>
-                                <a href="https://artistnepal.com/how-to-follow-your-favorite-artist-on-artistnepal-com/"
-                                   class="more icon pr-arrow-right"></a>
-                                <a href="https://artistnepal.com/how-to-follow-your-favorite-artist-on-artistnepal-com/"
-                                   class="link"></a>
-                            </div>
-                        </div>
-                    </article>
-                    <article class="post type-post">
-                        <div class="outer">
-                            <div class="featured-image">
-                                <div class="image pr__image__cover"
-                                     data-src="https://artistnepal.com/wp-content/uploads/2022/09/Manisha-Pokharel-Cover-Pic-scaled.jpg"
-                                     data-uk-img=""></div>
-                            </div>
-                            <div class="inner">
-                                <a class="category"
-                                   href="https://artistnepal.com/claim-your-artistnepal-dashboard-a-step-towards-showcasing-your-art/">April
-                                    2, 2025</a>
-                                <h3 class="title uk-h5"><a
-                                        href="https://artistnepal.com/claim-your-artistnepal-dashboard-a-step-towards-showcasing-your-art/">Claim
-                                        Your ArtistNepal Dashboard: A Step Towards Showcasing Your Art</a>
+                                   href="{{ $blog->getFrontendUrl() }}">
+                                    May 15, 2025
+                                    {{ $blog->updated_at->format('F j, Y') }}
+                                </a>
+                                <h3 class="title uk-h5">
+                                    <a href="{{ $blog->getFrontendUrl() }}">
+                                        {{ $blog->title }}
+                                    </a>
                                 </h3>
-                                <a href="https://artistnepal.com/claim-your-artistnepal-dashboard-a-step-towards-showcasing-your-art/"
+                                <a href="{{ $blog->getFrontendUrl() }}"
                                    class="more icon pr-arrow-right"></a>
-                                <a href="https://artistnepal.com/claim-your-artistnepal-dashboard-a-step-towards-showcasing-your-art/"
+                                <a href="{{ $blog->getFrontendUrl() }}"
                                    class="link"></a>
                             </div>
                         </div>
                     </article>
-                    <article class="post type-post">
-                        <div class="outer">
-                            <div class="featured-image">
-                                <div class="image pr__image__cover"
-                                     data-src="https://artistnepal.com/wp-content/uploads/2025/03/white-paper-on-black-wooden-table-scaled.jpg"
-                                     data-uk-img=""></div>
-                            </div>
-                            <div class="inner">
-                                <a class="category"
-                                   href="https://artistnepal.com/step-by-step-guide-to-creating-your-artist-page-on-artist-nepal/">March
-                                    17, 2025</a>
-                                <h3 class="title uk-h5"><a
-                                        href="https://artistnepal.com/step-by-step-guide-to-creating-your-artist-page-on-artist-nepal/">Step-by-Step
-                                        Guide to Creating Your Artist Page on Artist Nepal</a></h3>
-                                <a href="https://artistnepal.com/step-by-step-guide-to-creating-your-artist-page-on-artist-nepal/"
-                                   class="more icon pr-arrow-right"></a>
-                                <a href="https://artistnepal.com/step-by-step-guide-to-creating-your-artist-page-on-artist-nepal/"
-                                   class="link"></a>
-                            </div>
-                        </div>
-                    </article>
+                    @endforeach
                 </div>
             </div><!-- Container End -->
         </div><!-- Inner End -->
