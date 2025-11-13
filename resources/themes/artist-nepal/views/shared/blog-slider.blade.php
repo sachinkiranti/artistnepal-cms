@@ -5,8 +5,9 @@
                 <div class="inner">
                     <div class="center">
                         <h2 class="title uk-h1">Artist Blog</h2>
-                        <span class="subtitle pr__heading__secondary">informal help diary for using artist
-                                            page</span>
+                        <span class="subtitle pr__heading__secondary">
+                            informal help diary for using artist page
+                        </span>
                     </div>
                 </div>
             </div><!-- Container End -->

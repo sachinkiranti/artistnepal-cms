@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Foundation\Enums\Role;
+use Foundation\Enums\Category;
+use Foundation\Services\CategoryService;
 use Illuminate\View\View;
 use Foundation\Services\UserService;
 use Illuminate\Contracts\View\Factory;
@@ -13,7 +15,8 @@ final class HomeController extends BaseController
 
     public function __construct(
         private readonly SettingService $settingService,
-        private readonly UserService $userService
+        private readonly UserService $userService,
+        private readonly CategoryService $categoryService
     ) {}
 
     /**
@@ -28,6 +31,10 @@ final class HomeController extends BaseController
         $data = [];
 
         $data['featured-artists'] = $this->userService->getUsersHavingRole(Role::ROLE_ARTIST->value, 10);
+        $data['categories'] = $this->categoryService->query()
+            ->where('type', Category::ARTIST)
+            ->limit(12)
+            ->get();
 
         return view('pages.index', compact('data'));
     }

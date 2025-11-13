@@ -31,7 +31,7 @@
                                                 <div class="uk-container">
                                                     <p class="pr__center text-center"><a
                                                             class="button uk-button uk-button-default "
-                                                            href="https://artistnepal.com/for-artist/">Sign
+                                                            href="{{ route('for-artist') }}">Sign
                                                             up now for FREE!</a></p>
                                                 </div>
                                             </div>

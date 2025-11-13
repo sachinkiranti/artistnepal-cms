@@ -58,7 +58,7 @@
                                                             way.
                                                         </p>
                                                         <p>
-                                                            <a href="https://artistnepal.com/artist/register/"
+                                                            <a href="{{ route('artist.register') }}"
                                                                class="sign-up-now-for-free">
                                                                 Sign Up Now for FREE!<br>
                                                             </a>
@@ -129,7 +129,7 @@
                                                                     style="color: #e10d6e;">www.artistnepal.com</strong>
                                                                 and let your creative journey begin!
                                                             </p>
-                                                            <a href="https://artistnepal.com/artist/register/"
+                                                            <a href="{{ route('artist.register') }}"
                                                                style="display: inline-block; padding: 15px 40px; background: linear-gradient(135deg, #6C63FF, #e10d6e); color: white; font-size: 1.2rem; font-weight: 600; text-decoration: none; border-radius: 50px; box-shadow: 0 10px 30px rgba(108, 99, 255, 0.3); transition: all 0.3s ease;">
                                                                 Join Our Creative Community<br>
                                                             </a></div>

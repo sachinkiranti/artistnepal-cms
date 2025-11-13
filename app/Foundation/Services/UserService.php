@@ -7,6 +7,7 @@ use Foundation\Lib\SoftDelete;
 use Foundation\Models\User;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Facades\DB;
+use Kiranti\Config\Status;
 use Kiranti\Supports\BaseService;
 use PhpParser\Node\Scalar\String_;
 
@@ -80,14 +81,16 @@ class UserService extends BaseService
             ->select('*')
             ->selectRaw('CONCAT_WS(" ", first_name, middle_name, last_name) AS full_name')
             ->whereHas('roles', function (Builder $query) use ($role) {
-            $query->where('slug', 'like', $role);
-        });
+                $query->where('slug', 'like', $role);
+            });
 
         if ($limit) {
             $queries->limit($limit);
         }
 
-        return $queries->get();
+        return $queries
+            ->where('status', Status::ACTIVE_STATUS)
+            ->get();
     }
 
     public function getArtists(int $paginate = 10, array $filters = [])

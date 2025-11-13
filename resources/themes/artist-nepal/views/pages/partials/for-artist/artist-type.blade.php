@@ -55,9 +55,10 @@
                                                 </li>
                                             </ul>
                                         </div>
-                                        <div class="uk-card-footer"><a class="uk-button uk-button-text"
-                                                                       href="https://artistnepal.com/wp-login.php">Join
-                                                now</a></div>
+                                        <div class="uk-card-footer">
+                                            <a class="uk-button uk-button-text"
+                                               href="{{ route('artist.register') }}">Join now</a>
+                                        </div>
                                     </div>
                                 </div>
                                 <div>
@@ -102,7 +103,7 @@
                                             </ul>
                                         </div>
                                         <div class="uk-card-footer"><a class="uk-button uk-button-text"
-                                                                       href="https://artistnepal.com/wp-login.php">Join
+                                                                       href="{{ route('artist.register') }}">Join
                                                 now</a></div>
                                     </div>
                                 </div>
@@ -149,7 +150,7 @@
                                             </ul>
                                         </div>
                                         <div class="uk-card-footer"><a class="uk-button uk-button-text"
-                                                                       href="https://artistnepal.com/wp-login.php?action=register">update
+                                                                       href="{{ route('artist.register') }}">update
                                                 now</a></div>
                                     </div>
                                 </div>

@@ -29,8 +29,10 @@
                                 artists of this generation to learn about the best artists. Artist Nepal is
                                 renowned for promoting the careers of artists across the country and for
                                 appreciating their work and projects worldwide.</p>
-                            <p class="uk-align-center"><a href="https://artistnepal.com/listing/"
-                                                          class="button uk-button uk-button-default ">Discover more</a></p>
+                            <p class="uk-align-center">
+                                <a href="{{ route('listing') }}"
+                                   class="button uk-button uk-button-default ">Discover more</a>
+                            </p>
                         </div>
                     </div>
                 </div><!-- Container End -->
