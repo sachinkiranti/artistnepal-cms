@@ -89,6 +89,17 @@
 
 <div class="hr-line-dashed"></div>
 <div class="form-group row">
+    <label class="col-sm-12 col-form-label">USA Email</label>
+    <div class="col-sm-12">
+        {!! Form::email('usa_email',$data['settings']['usa_email'] ?? null, ['class' => 'form-control','placeholder' => 'Email', 'autocomplete' => 'off']) !!}
+    </div>
+    @if($errors->has('usa_email'))
+        <label class="error" for="usa_email"> {{ $errors->first('usa_email') }}</label>
+    @endif
+</div>
+
+<div class="hr-line-dashed"></div>
+<div class="form-group row">
     <label class="col-sm-12 col-form-label">Company Location</label>
     <div class="col-sm-12">
         {!! Form::text('location',$data['settings']['location'] ?? null, ['class' => 'form-control ','placeholder' => 'Location', 'autocomplete' => 'off']) !!}
@@ -111,7 +122,7 @@
 
 <div class="hr-line-dashed"></div>
 <div class="form-group row">
-    <label class="col-sm-12 col-form-label">America Phone No.</label>
+    <label class="col-sm-12 col-form-label">USA Phone No.</label>
     <div class="col-sm-12">
         {!! Form::text('mobile',$data['settings']['mobile'] ?? null, ['class' => 'form-control ','placeholder' => 'Mobile', 'autocomplete' => 'off']) !!}
     </div>

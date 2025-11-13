@@ -69,10 +69,13 @@ class SettingController extends BaseController
      */
     public function update(UpdateRequest $request)
     {
-        $this->settingService->update($request->merge([
+        $this->settingService->update(
+            $request->merge([
             'is_homepage_popup_ads_enabled' => $request->get('is_homepage_popup_ads_enabled') === 'on',
         ])->except('_token'));
+
         \Foundation\Lib\Cache::clear();
+
         flash('success', 'Record successfully updated.');
         return redirect()->route( 'admin.setting.edit');
     }

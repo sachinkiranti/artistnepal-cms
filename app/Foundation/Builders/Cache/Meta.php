@@ -25,6 +25,11 @@ final class Meta
         return \Arr::get($arrs, str_replace($first.'.', '', $key));
     }
 
+    public static function toArray($key)
+    {
+        return collect(is_json(static::get($key)) ? json_decode(static::get($key), 1) : []);
+    }
+
     public static function get($key)
     {
         return \Cache::remember('settings-'. $key, Cache::TIME_INTERVAL, function () use ($key) {

@@ -24,11 +24,6 @@
                                 <i class="fa fa-2x fa-search"></i> <br> SEO
                             </a>
                         </li>
-                        <li>
-                            <a class="nav-link" data-toggle="tab" href="#ads">
-                                <i class="fa fa-2x fa-rocket"></i> <br> Advertisement
-                            </a>
-                        </li>
                     </ul>
 
 
@@ -54,12 +49,6 @@
                         <div role="tabpanel" id="seo" class="tab-pane">
                             <div class="panel-body">
                                 @include('admin.setting.partials.seo')
-                            </div>
-                        </div>
-
-                        <div role="tabpanel" id="ads" class="tab-pane">
-                            <div class="panel-body">
-                                @include('admin.setting.partials.ads')
                             </div>
                         </div>
                     </div>

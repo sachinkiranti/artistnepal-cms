@@ -13,20 +13,19 @@
                         <div class="pr__cta column">
                             <div class="inner">
                                 <a id="pr__contact" href="{{ route('contact') }}"
-                                   class="button uk-button uk-button-large uk-button-default">Make an
-                                    enquiry</a>
+                                   class="button uk-button uk-button-large uk-button-default">
+                                    Make an enquiry
+                                </a>
                             </div>
                         </div>
                         <div class="pr__social column">
                             <div class="inner">
-                                <a href="https://www.facebook.com/artistnepal" target="_blank"
-                                   rel="noreferrer noopener" class="icon pr-logo-facebook"></a>
-                                <a href="https://www.twitter.com/artistnepal" target="_blank"
-                                   rel="noreferrer noopener" class="icon pr-logo-twitter"></a>
-                                <a href="https://www.instagram.com/artistnepal" target="_blank"
-                                   rel="noreferrer noopener" class="icon pr-logo-instagram"></a>
-                                <a href="https://www.youtube.com/c/artistnepaltv" target="_blank"
-                                   rel="noreferrer noopener" class="icon pr-logo-youtube"></a>
+                                @foreach(\Foundation\Builders\Cache\Meta::toArray('social') as $socialPlatform => $socialLink)
+                                    @if(!empty($socialLink))
+                                        <a href="{{ $socialLink }}" target="_blank"
+                                            rel="noreferrer noopener" class="icon pr-logo-{{ $socialPlatform }}"></a>
+                                    @endif
+                                @endforeach
                             </div>
                         </div>
                     </div>
@@ -36,11 +35,20 @@
     </div>
     <div class="pr__footer__center uk-section uk-section-small">
         <div class="uk-container">
+
             <ul>
-                <li><a href="tel:info[@]artistnepal.com">Kathmandu<span
-                            class="phone">info[@]artistnepal.com</span></a></li>
-                <li><a href="tel:business[@]artistnepal.com">NY USA<span
-                            class="phone">business[@]artistnepal.com</span></a></li>
+                <li>
+                    <a href="tel:{{ \Foundation\Builders\Cache\Meta::get('email') }}">
+                        {{ \Foundation\Builders\Cache\Meta::get('location') }}
+                        <span class="phone">{{ \Foundation\Builders\Cache\Meta::get('email') }}</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="tel:{{ \Foundation\Builders\Cache\Meta::get('usa_email') }}">
+                        {{ \Foundation\Builders\Cache\Meta::get('secondary_location') }}
+                        <span class="phone">{{ \Foundation\Builders\Cache\Meta::get('usa_email') }}</span>
+                    </a>
+                </li>
             </ul>
         </div>
     </div>
@@ -54,8 +62,7 @@
                         </div>
                         <div class="pr__copyrights column">
                             <div class="inner">
-                                <p>2025 © <a href="https://artistnepal.com">Artist Nepal</a>, All rights
-                                    reserved.</p>
+                                <p>{{ date('Y') }} © <a href="{{ url('/') }}">Artist Nepal</a>, All rights reserved.</p>
                             </div>
                         </div>
                     </div>
