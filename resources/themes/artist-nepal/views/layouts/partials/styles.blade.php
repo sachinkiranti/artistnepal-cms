@@ -34,3 +34,9 @@
       href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.min.css?ver=6.8.2' type='text/css'
       media='all' />
 @stack('css')
+<style>
+    a, a:hover {
+        text-decoration: none;
+        color: #101010;
+    }
+</style>

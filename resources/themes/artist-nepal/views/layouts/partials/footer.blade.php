@@ -12,7 +12,7 @@
                         </div>
                         <div class="pr__cta column">
                             <div class="inner">
-                                <a id="pr__contact" href="https://artistnepal.com/contact/"
+                                <a id="pr__contact" href="{{ route('contact') }}"
                                    class="button uk-button uk-button-large uk-button-default">Make an
                                     enquiry</a>
                             </div>
