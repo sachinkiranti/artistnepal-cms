@@ -9,16 +9,13 @@
     <link rel="stylesheet" href="https://artistnepal.com/wp-content/themes/artistnepal/style.css" type="text/css"
           media="screen"/>
     <link rel='stylesheet' id='style-css'
-          href='https://artistnepal.com/wp-content/themes/artistnepal/assets/css/register.css?ver=6.8.3' type='text/css'
+          href='{{ asset('/dist/themes/artist-nepal/css/artist-register.css') }}' type='text/css'
           media='all'/>
     <link rel="pingback" href="https://artistnepal.com/xmlrpc.php"/>
 
 
     <title>Register &#8211; ArtistNepal</title>
     <meta name='robots' content='max-image-preview:large'/>
-    <style>img:is([sizes="auto" i], [sizes^="auto," i]) {
-            contain-intrinsic-size: 3000px 1500px
-        }</style>
     <link rel="icon" href="https://artistnepal.com/wp-content/uploads/2019/12/cropped-ArtistNepal-Icon-32x32.png"
           sizes="32x32"/>
     <link rel="icon" href="https://artistnepal.com/wp-content/uploads/2019/12/cropped-ArtistNepal-Icon-192x192.png"
@@ -27,6 +24,17 @@
           href="https://artistnepal.com/wp-content/uploads/2019/12/cropped-ArtistNepal-Icon-180x180.png"/>
     <meta name="msapplication-TileImage"
           content="https://artistnepal.com/wp-content/uploads/2019/12/cropped-ArtistNepal-Icon-270x270.png"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <style>
+        img:is([sizes="auto" i], [sizes^="auto," i]) {
+            contain-intrinsic-size: 3000px 1500px
+        }
+        a, a:hover {
+            text-decoration: none;
+            color: #101010;
+        }
+    </style>
 </head>
 <body
     class="wp-singular page-template page-template-page-templates page-template-register page-template-page-templatesregister-php page page-id-9797 wp-theme-artistnepal">
@@ -81,14 +89,57 @@
 
                 <div class="register-tagline">
 
+                    @if(session('success'))
+                    <div class="alert alert-success" role="alert">
+                        {{ session('success') }}
+                    </div>
+                    @endif
+
+                    @if(session('error'))
+                    <div class="alert alert-danger" role="alert">
+                        {{ session('error') }}
+                    </div>
+                    @endif
 
                     <form method="post" action="">
-                        <input type="hidden" id="artist_register_nonce" name="artist_register_nonce"
-                               value="3a17fc4927"/><input type="hidden" name="_wp_http_referer" value="/app/register/"/>
-                        <input type="text" name="full_name" placeholder="Enter Fullname" value="" required><br>
-                        <input type="email" name="email" placeholder="Email" value="" required><br>
+                        @csrf
 
-                        <input type="password" name="password" placeholder="Password" required><br>
+                        <input style="{{ $errors->has('full_name') ? 'margin-bottom: 5px;' : '' }}" type="text" name="full_name" placeholder="Enter Fullname" value="{{ old('full_name') }}" required><br>
+
+                        @error('full_name')
+                        <div style="text-align: left; font-weight: 300;">
+                            <small class="text-danger">{{ $message }}</small>
+                        </div>
+                        @enderror
+
+                        <input style="{{ $errors->has('email') ? 'margin-bottom: 5px;' : '' }}" type="email" name="email" placeholder="Email" value="{{ old('email') }}" required><br>
+
+                        @error('email')
+                        <div style="text-align: left; font-weight: 300;">
+                            <small class="text-danger">{{ $message }}</small>
+                        </div>
+                        @enderror
+
+                        @if($data['is-artist-route'])
+                            <div style="text-align: left;font-weight: 300;">
+                                <small><i class="fa fa-info"></i> Please share the link to your official social media page.</small>
+                            </div>
+                            <input type="url"  style="{{ $errors->has('social_link') ? 'margin-bottom: 5px;' : '' }}" name="social_link" placeholder="https://www.facebook.com/artistnepal" value="{{ old('social_link') }}" required><br>
+
+                            @error('social_link')
+                            <div style="text-align: left; font-weight: 300;">
+                                <small class="text-danger">{{ $message }}</small>
+                            </div>
+                            @enderror
+                        @endif
+
+                        <input type="password" style="{{ $errors->has('password') ? 'margin-bottom: 5px;' : '' }}" name="password" placeholder="Password" required><br>
+                        @error('password')
+                        <div style="text-align: left; font-weight: 300;">
+                            <small class="text-danger">{{ $message }}</small>
+                        </div>
+                        @enderror
+                        <input type="password" name="password_confirmation" placeholder="Confirm your Password" required><br>
 
                         <label style="display: block; margin: 10px 0;">
                             <input type="checkbox" name="terms" required

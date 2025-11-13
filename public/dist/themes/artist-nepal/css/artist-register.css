@@ -57,6 +57,7 @@ body.register-custom-page {
 
 .register-form-box form input[type="text"],
 .register-form-box form input[type="email"],
+.register-form-box form input[type="url"],
 .register-form-box form input[type="password"] {
     width: 100%;
     padding: 12px;
