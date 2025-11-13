@@ -23,9 +23,9 @@ class LoginAction
                     ->with('success', 'Logged in successfully.');
             }
 
-            return back()->withErrors([
-                'user_login' => 'Invalid credentials provided.',
-            ])->onlyInput('user_login');
+            return back()
+                ->with('error', 'Invalid credentials provided.')
+                ->onlyInput('user_login');
         }
 
         return view('pages.auth.login');

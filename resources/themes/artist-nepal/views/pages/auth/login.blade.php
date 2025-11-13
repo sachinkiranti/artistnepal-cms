@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="https://artistnepal.com/wp-content/themes/artistnepal/style.css" type="text/css"
           media="screen"/>
     <link rel="pingback" href="https://artistnepal.com/xmlrpc.php"/>
-
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <title>Login &#8211; ArtistNepal</title>
     <meta name='robots' content='max-image-preview:large'/>
     <style>img:is([sizes="auto" i], [sizes^="auto," i]) {
@@ -63,6 +63,19 @@
 
                 <form name="custom_loginform" id="custom_loginform" action="{{ route('app.login') }}"
                       method="post">
+
+                    @if(session('success'))
+                        <div class="alert alert-success" role="alert">
+                            {{ session('success') }}
+                        </div>
+                    @endif
+
+                    @if(session('error'))
+                        <div class="alert alert-danger" role="alert">
+                            {{ session('error') }}
+                        </div>
+                    @endif
+
                     @csrf
                     <p class="login-username">
                         <label for="user_login">Username or Email</label>
