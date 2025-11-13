@@ -2,9 +2,11 @@
 
 namespace Foundation\Services;
 
+use Foundation\Enums\FaqType;
 use Foundation\Models\Faq;
 use Illuminate\Support\Arr;
 use Kiranti\Config\Language;
+use Kiranti\Config\Status;
 use Kiranti\Supports\BaseService;
 
 /**
@@ -80,6 +82,15 @@ class FaqService extends BaseService
             })
             ->where('lang', Language::get(active_lang(), true))
             ->latest();
+    }
+
+    public function forArtist()
+    {
+        return $this->model->newQuery()
+            ->orderBy('priority')
+            ->where('type', FaqType::ARTIST)
+            ->where('status', Status::ACTIVE_STATUS)
+            ->get();
     }
 
 }

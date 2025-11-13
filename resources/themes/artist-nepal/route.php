@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Frontend\{Actions\Artist\ViewPostAction,
     Actions\ListingAction,
+    Actions\Pages\ForArtistAction,
     HomeController,
     SingleController,
     AuthorController,
@@ -26,6 +27,7 @@ Route::group([ 'middleware' => [ 'web' ] ], function () {
         ->name('artist.register');
 
     Route::get('/listing', ListingAction::class)->name('listing');
+    Route::get('/for-artist', ForArtistAction::class)->name('for-artist');
 
     Route::get('/author/{author}', AuthorController::class)->name('author.single');
     Route::get('/artist/{artist}', ArtistController::class)->name('artist.single');

@@ -22,6 +22,8 @@ class Faq extends Model
      */
     protected $fillable = [
         'faq_name', 'slug', 'body', 'status', 'lang',
+        'secondary_body',
+        'type', 'priority',
     ];
 
     protected static function newFactory()

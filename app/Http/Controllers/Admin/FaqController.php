@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use Exception;
+use Foundation\Enums\FaqType;
 use Illuminate\Support\Str;
 use Illuminate\View\View;
 use Illuminate\Http\Request;
@@ -54,6 +55,9 @@ class FaqController extends BaseController
                     'filter.status',
                     'filter.createdAt'
                 )))
+                ->addColumn('faq_name', function ($data) {
+                    return view('admin.faq.partials.faq-name',compact('data'))->render();
+                })
                 ->addColumn('created_at', function ($data) {
                     return view('admin.common.created-at',compact('data'))->render();
                 })
@@ -71,7 +75,7 @@ class FaqController extends BaseController
                 ->addColumn('checkbox', function ($data) {
                     return view('admin.common.checkbox', compact('data'))->render();
                 })
-                ->rawColumns(['body','checkbox','status', 'action', 'created_at', ])
+                ->rawColumns(['body','checkbox','status', 'action', 'created_at', 'faq_name' ])
                 ->make(true);
         }
 
@@ -88,7 +92,9 @@ class FaqController extends BaseController
     public function create()
     {
         $data = [];
-        //
+
+        $data['types'] = FaqType::dropdown();
+
         return view('admin.faq.create', compact('data'));
     }
 
@@ -101,7 +107,8 @@ class FaqController extends BaseController
     public function store(StoreRequest $request)
     {
         $this->faqService->new($request->merge([
-            'slug' => Str::slug($request->get('faq_name'))
+            'slug' => Str::slug($request->get('faq_name')),
+            'priority' => Faq::where('type', $request->get('type'))->max('priority') + 1,
         ])->all());
         flash('success', 'Record successfully created.');
         return $this->redirect($request);
@@ -130,6 +137,7 @@ class FaqController extends BaseController
     {
         $data = [];
         $data['faq']  = $faq;
+        $data['types'] = FaqType::dropdown();
         return view('admin.faq.edit', compact('data'));
     }
 
