@@ -1,2 +1,0 @@
-<br>
-<div class="sharethis-inline-share-buttons"></div>
