@@ -2,6 +2,8 @@
 
 @section('title', 'Profile')
 
+@section('header-style', 'promo--vsmall')
+
 @section('promo-container')
     <hr class="line pr__hr__secondary">
     <h2 class="title uk-heading-hero">Edit your profile!</h2>

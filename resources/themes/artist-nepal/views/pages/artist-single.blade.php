@@ -2,6 +2,8 @@
 
 @section('title', '')
 
+@section('header-style', 'promo--small')
+
 @section('promo-banner', $data['profile']->getBannerImage())
 
 @section('promo-container')
